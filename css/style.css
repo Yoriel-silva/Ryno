@@ -14,7 +14,7 @@ header {
     border: 1px solid red;
 }
 
-#logo h1 {
+header #logo h1 {
     background: url(../img/LOGO02-1.png) no-repeat;
     width: 130px;
     height: 192px;
@@ -25,17 +25,17 @@ header {
 }
 
 
-nav ul {
+header nav ul {
     list-style: none;
     margin: 20px;
     float: right;
 }
 
-nav ul li {
+header nav ul li {
     float: left;
 }
 
-nav ul li a:link, nav ul li a:visited {
+header nav ul li a:link, nav ul li a:visited {
     margin-right: 25px;
     text-transform: uppercase;
     text-decoration: none;
@@ -50,6 +50,37 @@ nav ul li a:link, nav ul li a:visited {
    text-align: center;
 }
 
-nav ul li a:hover {
+header nav ul li a:hover {
     border-bottom: 1px solid #535858;
+}
+
+footer {
+        padding: 0px;
+        height: 192px;
+        border: 1px solid red;
+}
+
+footer nav ul {
+    list-style: none;
+    margin: 20px;
+    float: right;
+}
+
+footer #logo h1 {
+    background: url(../img/LOGO02-1.png) no-repeat;
+    width: 130px;
+    height: 192px;
+    border: 1px red solid;
+    text-indent: -9999px;
+    margin: 0px;
+    float: right;
+}
+
+p {
+    color: white;
+}
+
+#direitos {
+    text-align: center;
+    border: 1px solid red;
 }
