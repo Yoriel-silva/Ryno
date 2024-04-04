@@ -1,0 +1,55 @@
+body{
+    background: #222222;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 0px;
+    height: 192px;
+    border: 1px solid red;
+}
+
+#logo h1 {
+    background: url(../img/LOGO02-1.png) no-repeat;
+    width: 130px;
+    height: 192px;
+    border: 1px red solid;
+    text-indent: -9999px;
+    margin: 0px;
+    float: left;
+}
+
+
+nav ul {
+    list-style: none;
+    margin: 20px;
+    float: right;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a:link, nav ul li a:visited {
+    margin-right: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+
+#nav-login {
+   background: #666666;
+   border-radius: 50px;
+   width: 100px;
+   display: block;
+   text-align: center;
+}
+
+nav ul li a:hover {
+    border-bottom: 1px solid #535858;
+}
