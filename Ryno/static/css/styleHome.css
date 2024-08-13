@@ -1,0 +1,201 @@
+body {
+    background: #222222;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+header {
+    height: 120px;
+    overflow: hidden;
+}
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    background-color: #222222;
+    border-bottom: 2px solid white;
+    border-radius: 5px;
+}
+
+header #logo h1 {
+    background: url(../img/LOGO02.png) no-repeat;
+    width: 130px;
+    height: 192px;
+    text-indent: -9999px;
+    margin: 0 20% 0 0;
+    float: left;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 50px 30px 0 0;
+    float: right;
+}
+
+header nav ul li {
+    float: left;
+}
+
+header nav ul li a {
+    margin-right: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    opacity: 1;
+    transition: 0.6s;
+}
+
+header nav ul li a:hover {
+    opacity: 0.3;
+}
+#nav-login {
+    background-color: #666666;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.6s;
+}
+.icones nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+.icones li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    margin: 0 10px 0 32px;
+}
+.icones p {
+    text-align: center;
+}
+.icones {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.icones ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 60%;
+}
+.icones li, a {
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #bdbdbd;
+    margin: 0 10px;
+}
+.icones p {
+    text-align: center;
+    margin: 0;
+}
+.icones i {
+    font-size: 70px;
+    margin-bottom: 20px;
+    transition: .6s;
+}
+.icones i:hover{
+    color: white;
+    cursor: pointer;
+}
+.clear {
+    clear: both;
+}
+
+footer {
+    padding: 0;
+    height: 130px;
+    border-top: 2px solid white;
+    border-radius: 5px;
+    padding-top: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+footer nav ul {
+    list-style: none;
+    margin: 20px;
+    float: right;
+}
+
+footer #logo h1 {
+    background: url(../img/LOGO02.png) no-repeat;
+    width: 130px;
+    height: 192px;
+    text-indent: -9999px;
+    margin: 0;
+    float: right;
+}
+
+p {
+    color: white;
+}
+
+.icon{
+    color: #bdbdbd;
+    font-size: 35px;
+    padding-right: 15px;
+    opacity: 0.3;
+    transition: 0.6s;
+}
+.icon:hover{
+    opacity: 1;
+}
+/* Main */
+
+#email{
+    margin-left: 10px;
+}
+.sobre {
+    background-color: #666666;
+    color: white;
+    width: 1164px;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.quemsomos {
+    text-align: center;
+    overflow: hidden;
+    margin: 20px auto 20px;
+}
+
+.imgquem2 {
+    float: left;
+    width: 356px;
+    height: 425px;
+    padding: 10px;
+}
+
+.imgquem1 {
+    float: right;
+    width: 356px;
+    height: 525px;
+    padding: 20px;
+}
+
+.textoquemsomos {
+    text-align: justify;
+    font-size: 15px; 
+    overflow: hidden; /* Clear floats */
+    margin: 10px;
+}
+.icon{
+    color: #bdbdbd;
+    font-size: 35px;
+    padding-right: 15px;
+    opacity: 0.3;
+    transition: 0.6s;
+}
+.icon:hover{
+    opacity: 1;
+}

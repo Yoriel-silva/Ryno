@@ -1,0 +1,173 @@
+body {
+    background: #222222;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+header {
+    height: 120px;
+    overflow: hidden; /* Clear floats */
+}
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    background-color: #222222;
+    border-bottom: 2px solid white;
+    border-radius: 5px;
+}
+
+header #logo h1 {
+    background: url(../img/LOGO02.png) no-repeat;
+    width: 130px;
+    height: 192px;
+    text-indent: -9999px;
+    margin: 0 20% 0 0;
+    float: left;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 50px 30px 0 0;
+    float: right;
+}
+
+header nav ul li {
+    float: left;
+}
+
+header nav ul li a {
+    margin-right: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    opacity: 1;
+    transition: 0.6s;
+}
+
+header nav ul li a:hover {
+    opacity: 0.3;
+}
+
+#nav-login {
+    background-color: #666666;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.6s;
+}
+.icones nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+.icones li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    margin: 0 10px 0 32px;
+}
+.icones p {
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+}
+
+footer {
+    padding: 0;
+    height: 130px;
+    width: auto;
+    border-top: 2px solid white;
+    border-radius: 5px;
+    padding-top: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+footer nav ul {
+    list-style: none;
+    margin: 20px;
+    float: right;
+}
+
+footer #logo h1 {
+    background: url(../img/LOGO02.png) no-repeat;
+    width: 130px;
+    height: 192px;
+    text-indent: -9999px;
+    margin: 0;
+    float: right;
+}
+
+p {
+    color: white;
+}
+
+.icon{
+    color: #bdbdbd;
+    font-size: 35px;
+    padding-right: 15px;
+    opacity: 0.3;
+    transition: 0.6s;
+}
+.icon:hover{
+    opacity: 1;
+}
+/* Main */
+#formulario-login{
+    background-color: #666666;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    width: 300px;
+    margin: 20px auto 20px;
+    border-radius: 30px;
+  }
+  #formulario-login input{
+    border-radius: 20px;
+    border: none;
+    margin-top: 20px;
+    line-height: 40px;
+    width: 90%;
+    padding-left: 20px;
+  }
+  #formulario-login input[type="password"]{
+    margin-bottom: 20px;
+  }
+  #formulario-login button{
+    border-radius: 20px;
+    border: none;
+    padding: 8px;
+    transition: .5s;
+    border: 2px solid #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  #formulario-login legend{
+    color: #fff;
+    font-size: xx-large;
+  }
+  #formulario-login a{
+    text-decoration: none;
+    color: #222222;
+    transition: 0.5s;
+  }
+  #formulario-login a:hover{
+    cursor: pointer;
+  }
+  #formulario-login button:hover{
+    background-color: #6e6c6c;
+    cursor: pointer;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    color: #fff;
+  }
+  #botao-login{
+    width: 100px;
+  }

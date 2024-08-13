@@ -1,0 +1,163 @@
+body {
+    background: #222222;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+header {
+    height: 120px;
+    overflow: hidden; /* Clear floats */
+}
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    background-color: #222222;
+    border-bottom: 2px solid white;
+    border-radius: 5px;
+}
+
+header #logo h1 {
+    background: url(../img/LOGO02.png) no-repeat;
+    width: 130px;
+    height: 192px;
+    text-indent: -9999px;
+    margin: 0 20% 0 0;
+    float: left;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 50px 30px 0 0;
+    float: right;
+}
+
+header nav ul li {
+    float: left;
+}
+
+header nav ul li a {
+    margin-right: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    opacity: 1;
+    transition: 0.6s;
+}
+
+header nav ul li a:hover {
+    opacity: 0.3;
+}
+
+#nav-login {
+    background-color: #666666;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.6s;
+}
+.icones nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+.icones li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    margin: 0 10px 0 32px;
+}
+
+.icones p {
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+}
+
+footer {
+    padding: 0;
+    height: 130px;
+    border-top: 2px solid white;
+    border-radius: 5px;
+    padding-top: 10px;
+    overflow: hidden; /* Clear floats */
+    margin-top: 20px;
+}
+
+footer nav ul {
+    list-style: none;
+    margin: 20px;
+    float: right;
+}
+
+footer #logo h1 {
+    background: url(../img/LOGO02.png) no-repeat;
+    width: 130px;
+    height: 192px;
+    text-indent: -9999px;
+    margin: 0;
+    float: right;
+}
+
+p {
+    color: white;
+}
+
+.icon{
+    color: #bdbdbd;
+    font-size: 35px;
+    padding-right: 15px;
+    opacity: 0.3;
+    transition: 0.6s;
+}
+.icon:hover{
+    opacity: 1;
+}
+/* Main */
+.main{
+    color: #fff;
+    display: block;
+}
+.main img{
+    width: 100px;
+    height: 100px;
+}
+.profissionais{
+    display: block;
+    text-align: center;
+}
+.basquete,
+.pilates,
+.musculacao{
+    width: auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+.professor-basquete,
+.professor-pilates,
+.professor-musculacao{
+    display: flex;
+    background-color: #666666;
+    border-radius: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 400px;
+}
+.professor-basquete p,
+.professor-pilates p,
+.professor-musculacao p{
+    display: block;
+    font-size: small;
+    color: black;
+    font-weight: bold;
+
+}
