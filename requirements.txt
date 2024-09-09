@@ -2,3 +2,5 @@ fastapi
 jinja2
 sqlalchemy
 uvicorn
+itsdangerous
+python-multipart
