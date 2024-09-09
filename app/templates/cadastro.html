@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryno - Login</title>
+    <link rel="web icon" href="/static/img/logopreta.png">
+    <link rel="stylesheet" href="/static/css/styleCadastro.css">
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+    <div id="container">
+        <header class="cabecalho">
+            <div id="logo">
+                <a href="/">
+                    <img src="/static/Image/logoRYNO.png" alt="Logo Ryno" id="logo-img">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/" title="Clique para ir para a página inicial">Home</a></li>
+                    <li><a href="/profissional" title="Clique para acessar a página do profissional">Profissional</a></li>
+                    <li><a id="nav-login" href="/login" title="Clique para fazer login">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+            <form id="formulario-cadastro" method="post" action="/cadastro/enviar">
+                <legend>REGISTRE-SE</legend>
+                <input type="text" name="nome" id="nome" placeholder="Nome"><br>
+                <input type="text" name="email" id="email" placeholder="E-mail"><br>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua Senha">
+                <input type="password" name="senha" id="senha" placeholder="Confirme sua Senha"><br>
+                <button id="botao-registrar">Registre-se</button>
+                <p>Já tem Conta?<a href="/login"> Login</a></p>
+                <p>ou</p>
+                <div class="botao-google">
+                    <button><i class="fa-brands fa-google"></i>Continue com Google</button>
+                </div>
+            </form>
+            <div class="clear"></div>
+            <div class="clear"></div>
+        <footer>
+        <div class="social-buttons">
+            <a href="https://www.facebook.com" target="_blank" class="social-button">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="social-button">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me" target="_blank" class="social-button">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <p>E-mail : Ryno@gmail.com</p>
+        </footer>
+    </div>
+</body>
+</html>
