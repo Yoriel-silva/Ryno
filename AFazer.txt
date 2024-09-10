@@ -1,0 +1,4 @@
+Front -
+- mudar os links do nav para ir diretamente para a página desejada
+- linkar as areas especificar para também ir a página designada
+- 
