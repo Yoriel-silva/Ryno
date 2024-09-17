@@ -14,6 +14,13 @@ class Usuario(Base):
     email: Mapped[str] = mapped_column(nullable=False)
     senha: Mapped[str] = mapped_column(nullable=False)
 
+    tipo: Mapped[str] = mapped_column(nullable=True)
+
+    telefone: Mapped[str] = mapped_column(nullable=True)
+    horario: Mapped[str] = mapped_column(nullable=True)
+    modalidade: Mapped[str] = mapped_column(nullable=True)
+    preco: Mapped[str] = mapped_column(nullable=True)
+
 # Conexão com Base de dados
 db = create_engine("sqlite:///base.db", echo=True)
 

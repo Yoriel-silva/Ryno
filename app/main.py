@@ -8,6 +8,7 @@ from CRUD.crud import create, read
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from starlette.middleware.sessions import SessionMiddleware
+from typing import Optional
 import os #Import para debug
 
 # Conexão com DB
@@ -49,9 +50,39 @@ def read_cadastro(request: Request):
 
 # Post de Cadastro
 @app.post('/cadastro/enviar', response_class=HTMLResponse)
-def cadastro(nome:str = Form(...), email: str = Form(...), senha: str = Form(...)):
+def cadastro(
+    nome: str = Form(...), 
+    email: str = Form(...), 
+    senha: str = Form(...), 
+    tipo: Optional[str] = Form('aluno'),  # Switch pode ser None ou "on"
+    telefone: Optional[str] = Form(None),  # Campos opcionais
+    horario: Optional[str] = Form(None), 
+    modalidade: Optional[str] = Form(None), 
+    preco: Optional[str] = Form(None)
+):
+    tipo_final = tipo if tipo == "profissional" else "aluno"
 
-    usuario = [Usuario(nome=nome,email=email,senha=senha)]
+    if tipo_final == "profissional":
+        if not telefone or not horario or not modalidade or not preco:
+            return HTMLResponse(content="Preencha todos os campos adicionais.", status_code=400)
+        usuario = Usuario(
+            nome=nome,
+            email=email,
+            senha=senha,
+            tipo=tipo_final,
+            telefone=telefone,
+            horario=horario,
+            modalidade=modalidade,
+            preco=preco
+        )
+    else:
+        usuario = Usuario(
+            nome=nome,
+            email=email,
+            senha=senha,
+            tipo=tipo_final
+            # Não inclui os campos opcionais se o switch estiver "off"
+        )
     create(usuario)
     return RedirectResponse(url=f"/login", status_code=303)
 

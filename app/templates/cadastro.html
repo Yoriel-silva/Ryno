@@ -34,6 +34,29 @@
                 <input type="text" name="email" id="email" placeholder="E-mail"><br>
                 <input type="password" name="senha" id="senha" placeholder="Digite sua Senha">
                 <input type="password" name="senha" id="senha" placeholder="Confirme sua Senha"><br>
+                
+                <label for="mostrarInfo">Deseja adicionar mais informações?</label>
+                <label class="switch">
+                    <input type="checkbox" id="tipo" onchange="toggleInformacoes()" name="tipo" value="profissional">
+                    <span class="slider round"></span>
+                </label>
+
+                <!-- Campos adicionais -->
+                <div id="informacoesAdicionais" style="display: none;">
+                    <h2>Informações Adicionais</h2>
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" id="telefone" name="telefone"><br><br>
+
+                    <label for="horario">Horario:</label>
+                    <input type="text" id="horario" name="horario"><br><br>
+
+                    <label for="modalidade">Modalidade:</label>
+                    <input type="text" id="modalidade" name="modalidade">
+
+                    <label for="preco">Faixa de Preço:</label>
+                    <input type="text" id="preco" name="preco">
+                </div>
+
                 <button id="botao-registrar">Registre-se</button>
                 <p>Já tem Conta?<a href="/login"> Login</a></p>
                 <p>ou</p>
@@ -58,5 +81,6 @@
         <p>E-mail : Ryno@gmail.com</p>
         </footer>
     </div>
+    <script src="/static/script.js"></script>
 </body>
 </html>

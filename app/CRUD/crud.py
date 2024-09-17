@@ -11,6 +11,10 @@ Session = sessionmaker(bind=db)
 
 # Operação de Escrita
 def create(modelos):
+    # Verifica se 'modelos' é iterável; se não for, transforma em uma lista
+    if not isinstance(modelos, list):
+        modelos = [modelos]
+
     with Session() as s:
         for modelo in modelos:
             s.add(modelo)
