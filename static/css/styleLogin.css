@@ -71,13 +71,14 @@ nav ul li a:hover {
 }
 
 /* Formulário de Login */
-#formulario-login {
-    background-color: #ffffff;
+.formulario-login {
+    background-color: #000000;
     text-align: center;
     padding: 50px;
     width: 300px;
     margin: 50px auto;
     border-radius: 30px;
+    border: 1px solid #ffffff;
 }
 
 #formulario-login input {
@@ -86,7 +87,9 @@ nav ul li a:hover {
     line-height: 40px;
     width: 100%;
     padding-left: 20px;
-    border: 2px solid #000000;
+    border: 2px solid #ffffff;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 #formulario-login input[type="password"] {
@@ -109,14 +112,16 @@ nav ul li a:hover {
 }
 
 #formulario-login legend {
-    color: #000000;
+    color: #ffffff;
     font-size: 28px;
     font-weight: bold;
 }
 
 #formulario-login a {
-    text-decoration: none;
-    color: #4A0B57;
+    color: #ffffff;
+}
+#formulario-login a:hover{
+    color: #41094c;
 }
 
 #formulario-login p {
@@ -126,7 +131,7 @@ nav ul li a:hover {
     gap: 5px; 
     margin: 10px 0; 
     font-size: 14px; 
-    color: #000000; 
+    color: #ffffff; 
 }
 
 .botao-google button i {
@@ -154,11 +159,12 @@ nav ul li a:hover {
     font-size: 20px;
     transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
     text-decoration: none;
+    transition: 0.3;
 }
 
 .social-button:hover {
     background-color: #4A0B57;
-    color: #000000;
+    color: #ffffff;
     border-color: #4A0B57;
 }
 

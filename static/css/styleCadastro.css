@@ -76,21 +76,25 @@ nav ul li a:hover {
 
 /* Formulário de Cadastro */
 #formulario-cadastro {
-    background-color: #ffffff; 
+    background-color: #000000; 
     text-align: center;
     padding: 50px;
     width: 350px;
     margin: 50px auto;
     border-radius: 30px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
 #formulario-cadastro input {
     border-radius: 20px;
-    border: 2px solid #000000;
+    border: 2px solid #ffffff;
     margin-top: 20px;
     line-height: 40px;
     width: 100%;
     padding-left: 20px;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 #formulario-cadastro button {
@@ -111,14 +115,13 @@ nav ul li a:hover {
 }
 
 #formulario-cadastro legend {
-    color: #000000;
+    color: #ffffff;
     font-size: 28px;
     font-weight: bold;
 }
 
 #formulario-cadastro a {
-    text-decoration: none;
-    color: #4A0B57; 
+    color: #ffffff; 
 }
 
 #formulario-cadastro a:hover {
@@ -132,7 +135,7 @@ nav ul li a:hover {
     gap: 5px; 
     margin: 10px 0; 
     font-size: 14px; 
-    color: #000000; 
+    color: #ffffff; 
 }
 
 .botao-google {
@@ -194,11 +197,12 @@ footer p {
     color: #ffffff;
     font-size: 20px;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .social-button:hover {
     background-color: #4A0B57;
-    color: #000000;
+    color: #ffffff;
     border-color: #4A0B57;
 }
 
@@ -239,7 +243,7 @@ footer p {
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #4A0B57;
   }
   
   input:checked + .slider:before {
@@ -254,3 +258,83 @@ footer p {
   .slider.round:before {
     border-radius: 50%;
   }
+  /*Infromações Adicionais*/
+  .mostrarInfo{
+    margin-top: 15px;
+    display: flex;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+}
+
+.mostrarInfo {
+    margin-right: 45px;
+}
+
+/* Estilos para o switch (opcional) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-top: 16px;
+    margin-left: 20px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #4A0B57;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.round {
+    border-radius: 34px;
+}
+#informacoesAdicionais input{
+        border-radius: 20px;
+        border: 2px solid #ffffff;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: 40px;
+        width: 100%;
+        padding-left: 20px;
+}
+#informacoesAdicionais h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#tipo{
+    margin-top: 10px;
+}

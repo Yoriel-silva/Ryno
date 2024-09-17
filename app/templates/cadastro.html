@@ -35,26 +35,25 @@
                 <input type="password" name="senha" id="senha" placeholder="Digite sua Senha">
                 <input type="password" name="senha" id="senha" placeholder="Confirme sua Senha"><br>
                 
-                <label for="mostrarInfo">Deseja adicionar mais informações?</label>
-                <label class="switch">
-                    <input type="checkbox" id="tipo" onchange="toggleInformacoes()" name="tipo" value="profissional">
-                    <span class="slider round"></span>
-                </label>
+                <div class="container">
+                    <label for="mostrarInfo" class="mostrarInfo">Você é Professor?</label>
+                    <label class="switch">
+                        <input type="checkbox" id="tipo" onchange="toggleInformacoes()" name="tipo" value="profissional">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
 
                 <!-- Campos adicionais -->
                 <div id="informacoesAdicionais" style="display: none;">
-                    <h2>Informações Adicionais</h2>
-                    <label for="telefone">Telefone:</label>
-                    <input type="text" id="telefone" name="telefone"><br><br>
+                    <h3>Informações Adicionais</h3>
+                    <input type="text" id="telefone" name="telefone" placeholder="Telefone: (xx) xxxxx-xxxx">
 
-                    <label for="horario">Horario:</label>
-                    <input type="text" id="horario" name="horario"><br><br>
+                    <input type="text" id="horario" name="horario" placeholder="Horário Vago:16:00-19:00">
 
-                    <label for="modalidade">Modalidade:</label>
-                    <input type="text" id="modalidade" name="modalidade">
+                    <input type="text" id="modalidade" name="modalidade" placeholder="Modalidade: Personal">
 
-                    <label for="preco">Faixa de Preço:</label>
-                    <input type="text" id="preco" name="preco">
+                    <input type="text" id="preco" name="preco" placeholder="Hora Aula: R$50,00">
                 </div>
 
                 <button id="botao-registrar">Registre-se</button>
