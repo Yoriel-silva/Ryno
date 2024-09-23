@@ -33,11 +33,6 @@ templates = Jinja2Templates(directory="app/templates")
 def read_home(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
 
-# Redireciona para pagina do aluno
-@app.get("/perfil_aluno", response_class=HTMLResponse)
-def read_aluno(request: Request):
-    return templates.TemplateResponse("perfil_aluno.html", {"request": request})
-
 # Redireciona para pagina do profissional
 @app.get("/profissional", response_class=HTMLResponse)
 def read_profissional(request: Request):
@@ -58,12 +53,13 @@ def cadastro(
     telefone: Optional[str] = Form(None),  # Campos opcionais
     horario: Optional[str] = Form(None), 
     modalidade: Optional[str] = Form(None), 
-    preco: Optional[str] = Form(None)
+    preco: Optional[str] = Form(None),
+    endereco: Optional[str] = Form(None)
 ):
     tipo_final = tipo if tipo == "profissional" else "aluno"
 
     if tipo_final == "profissional":
-        if not telefone or not horario or not modalidade or not preco:
+        if not telefone or not horario or not modalidade or not preco or not endereco:
             return HTMLResponse(content="Preencha todos os campos adicionais.", status_code=400)
         usuario = Usuario(
             nome=nome,
@@ -73,7 +69,8 @@ def cadastro(
             telefone=telefone,
             horario=horario,
             modalidade=modalidade,
-            preco=preco
+            preco=preco,
+            endereco=endereco
         )
     else:
         usuario = Usuario(
@@ -89,14 +86,32 @@ def cadastro(
 # Redireciona para pagina de login
 @app.get("/login", response_class=HTMLResponse)
 def read_login(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+    message = request.session.pop('message', None) #Recupera uma mensagem armazenada na sessão e remove essa mensagem da sessão
+    return templates.TemplateResponse("login.html", {"request": request, "message": message})
 
-# Perfil Professor
-@app.get("/perfil_professor", response_class=HTMLResponse)
+# Perfil
+@app.get("/perfil", response_class=HTMLResponse)
 def read_professor(request: Request):
-    return templates.TemplateResponse("perfil_professor.html", {"request": request})
 
-# Login
+    user_email = request.session.get('user_email') #Pegar o email que está como email da seção
+    user = read(user_email)
+    #Validação para ver se o usario está logado, caso não impede ele de acessar a pagina de perfil
+    if not user:
+        request.session['message'] = "Você precisa estar logado para acessar a página de perfil."
+        return RedirectResponse(url="/login", status_code=303) #Redireciona para a pagina de login, com uma informação de que foi redirecionado
+    else:
+        if user.tipo == 'aluno':
+            return templates.TemplateResponse("perfil_aluno.html", {"request": request, "nome": user.nome,"email": user.email, "senha": user.senha, "telefone": user.telefone, "endereco": user.endereco})
+        else:
+            return templates.TemplateResponse("perfil_professor.html", {"request": request, "nome": user.nome,"email": user.email, "senha": user.senha, "telefone": user.telefone, "endereco": user.endereco})
+
+#Rota de Logout
+@app.get("/perfil/logout", response_class=HTMLResponse)
+def logout(request: Request):
+    request.session.pop('user_email', None) #Faz com que o email do usurio seja removida do email da seção
+    return RedirectResponse(url="/login", status_code=303)
+
+# Login enviar
 @app.post("/login/enviar", response_class=HTMLResponse)
 def login(request: Request, email: str = Form(...), senha: str = Form(...)):
     # Obter a sessão
@@ -107,13 +122,14 @@ def login(request: Request, email: str = Form(...), senha: str = Form(...)):
     
     # Verificar se o usuário foi encontrado e se a senha está correta
     if not user or user.senha != senha:
-        raise HTTPException(status_code=400, detail="Credenciais inválidas")
+        request.session['message'] = "Credenciais inválidas. Por favor, tente novamente."
+        return RedirectResponse(url=f"/login", status_code=303)
     
     # Armazenar o email do usuário na sessão
     session['user_email'] = user.email
     
     # Redirecionar para a página do perfil do aluno
-    return RedirectResponse(url="/perfil_aluno", status_code=303)
+    return RedirectResponse(url="/perfil", status_code=303)
 
 
 # Redireciona para pagina do instagram

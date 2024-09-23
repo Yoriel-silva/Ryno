@@ -20,6 +20,7 @@ class Usuario(Base):
     horario: Mapped[str] = mapped_column(nullable=True)
     modalidade: Mapped[str] = mapped_column(nullable=True)
     preco: Mapped[str] = mapped_column(nullable=True)
+    endereco: Mapped[str] = mapped_column(nullable=True)
 
 # Conexão com Base de dados
 db = create_engine("sqlite:///base.db", echo=True)

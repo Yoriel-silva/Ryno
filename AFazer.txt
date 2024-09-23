@@ -3,5 +3,20 @@ Front -
 - linkar as areas especificar para também ir a página designada
 - 
 
-- alterações após o usuario logar
-- verificador de senha
+
+
+
+- alterações após o usuario logar - exibir a opção perfil
+
+- mostrar dados do usuario na pagina perfil
+    - finalizar dados
+
+
+- verificador
+    - verificar se as senhas são iguais na hora do cadastro
+    - verificar se o email já esxite no banco de dados
+
+-Atualizar informações - criar um botaõ e campo para poder Atualizar informações
+
+- exibir os profissionais cadastrados
+-exibir um historioco dos profissios/alunos que tiveram contato - opcional

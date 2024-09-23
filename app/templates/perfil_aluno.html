@@ -33,11 +33,23 @@
             <div id="perfil">
                 <h1>Aluno</h1>
                 <img src="/static/Image/perfil.png" alt="Perfil">
-                <p>Nome</p>
-                <p>Email</p>
-                <p>Telefone</p>
-                <p>Endereço</p>
-                <button id="logout">Logout</button>
+                <p>{{ nome }}</p>
+                <p>{{ email }}</p>
+                <p>
+                    {% if telefone %}
+                        {{ telefone }}
+                    {% else %}
+                        Telefone não informado
+                    {% endif %}
+                </p>
+                <p>
+                    {% if endereco %}
+                        {{ endereco }}
+                    {% else %}
+                        Endereço não informado
+                    {% endif %}
+                </p>
+                <button id="logout"><a href="/perfil/logout">Logout</a></button>
             </div>
             <div id="contato">
                 <h1>Profissionais Recentes</h1>

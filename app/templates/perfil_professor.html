@@ -32,12 +32,24 @@
             <div id="perfil">
                 <h1>Professor</h1>
                 <img src="/static/Image/perfil.png" alt="">
-                <p>Nome</p>
-                <p>Email</p>
-                <p>Telefone</p>
-                <p>Endereço</p>
+                <p>{{ nome }}</p>
+                <p>{{ email }}</p>
+                <p>
+                    {% if telefone %}
+                        {{ telefone }}
+                    {% else %}
+                        Telefone não informado
+                    {% endif %}
+                </p>
+                <p>
+                    {% if endereco %}
+                        {{ endereco }}
+                    {% else %}
+                        Endereço não informado
+                    {% endif %}
+                </p>
                 <p>CREF</p>
-                <button id="logout">Logout</button>
+                <button id="logout"><a href="/perfil/logout">Logout</a></button>
             </div>
             <div id="contato-container">
                 <h1>Profissionais Recentes</h1>
