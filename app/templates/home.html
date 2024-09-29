@@ -23,7 +23,13 @@
             </ul>
         </nav>
         <div class="login-btn">
+            {% if user_logged_in %}
+            <!-- Se o usuário estiver logado, mostrar o botão Perfil -->
+            <a href="perfil" class="btn">Perfil</a>
+            {% else %}
+            <!-- Se o usuário NÃO estiver logado, mostrar o botão Login -->
             <a href="login" class="btn">Login</a>
+            {% endif %}
         </div>
     </header>
 

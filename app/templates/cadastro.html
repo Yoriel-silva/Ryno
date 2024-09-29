@@ -24,16 +24,26 @@
                 <ul>
                     <li><a href="/" title="Clique para ir para a página inicial">Home</a></li>
                     <li><a href="/profissional" title="Clique para acessar a página do profissional">Profissional</a></li>
-                    <li><a id="nav-login" href="/login" title="Clique para fazer login">Login</a></li>
+                    {% if user_logged_in %}
+                    <!-- Se o usuário estiver logado, mostrar o botão Perfil -->
+                    <li><a id="nav-login" href="perfil" class="btn">Perfil</a></li>
+                    {% else %}
+                    <!-- Se o usuário NÃO estiver logado, mostrar o botão Login -->
+                    <li><a id="nav-login" href="login" class="btn">Login</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </header>
             <form id="formulario-cadastro" method="post" action="/cadastro/enviar">
+                <!--Exibir mensagem caso tenha-->
+                {% if message %}
+                <div style="color: red;">{{ message }}</div>
+                {% endif %}
                 <legend>REGISTRE-SE</legend>
                 <input type="text" name="nome" id="nome" placeholder="Nome"><br>
                 <input type="text" name="email" id="email" placeholder="E-mail"><br>
                 <input type="password" name="senha" id="senha" placeholder="Digite sua Senha">
-                <input type="password" name="senha" id="senha" placeholder="Confirme sua Senha"><br>
+                <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua Senha"><br>
                 
                 <div class="container">
                     <label for="mostrarInfo" class="mostrarInfo">Você é Professor?</label>

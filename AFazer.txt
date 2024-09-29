@@ -5,18 +5,26 @@ Front -
 
 
 
+Back-End:
 
-- alterações após o usuario logar - exibir a opção perfil
-
-- mostrar dados do usuario na pagina perfil
-    - finalizar dados
-
-
-- verificador
-    - verificar se as senhas são iguais na hora do cadastro
-    - verificar se o email já esxite no banco de dados
+-mostrar dados perfil - decidir sobre local
 
 -Atualizar informações - criar um botaõ e campo para poder Atualizar informações
 
 - exibir os profissionais cadastrados
--exibir um historioco dos profissios/alunos que tiveram contato - opcional
+
+opcional- 
+    -exibir um historioco dos profissios/alunos que tiveram contato
+    - mostrar dados do usuario na pagina perfil
+        - finalizar dados - Cref
+            -Alterar banco de dados para ter a opção
+            -Colocar ele no back de login
+            -Dar a opção do usuario colocar ou não o cref
+            -Verificar o cref
+                - CREF - conectar com 'API' que verifica-se o cref e então permitisse o uso dele
+                    -1 - usuario coloca seu cref
+                    -2 - o cref do usuario é mandado para o back End
+                    -3 - o back 'manda' o cref para ser verificado
+                    -4 - cria uma variavel com a resposta se o cref existe ou não
+                    -5 - baseado na resposta o usuario tera seu cref validado
+            - O proffisional pode não colocar o CREF - mas isso será mostrado para o clinete

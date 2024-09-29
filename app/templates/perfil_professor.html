@@ -24,7 +24,13 @@
                 <ul>
                     <li><a href="/" title="Clique para ir para a página inicial">Home</a></li>
                     <li><a href="/profissional" title="Clique para acessar a página do profissional">Profissional</a></li>
-                    <li><a id="nav-login" href="/login" title="Clique para fazer login">Login</a></li>
+                    {% if user_logged_in %}
+                    <!-- Se o usuário estiver logado, mostrar o botão Perfil -->
+                    <li><a id="nav-login" href="perfil" class="btn">Perfil</a></li>
+                    {% else %}
+                    <!-- Se o usuário NÃO estiver logado, mostrar o botão Login -->
+                    <li><a id="nav-login" href="login" class="btn">Login</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </header>
@@ -83,10 +89,10 @@
                     </div>
                     <h2>Meus Serviços</h2>
                     <div id="contato-p">
-                        <p>Modalidade: </p>
-                        <p>Local: </p>
-                        <p>Horário: </p>
-                        <p>Faixa de preço: </p>
+                        <p>Modalidade: {{ modalidade }}</p>
+                        <p>Local: a discutir </p>
+                        <p>Horário: {{ horario }}</p>
+                        <p>Faixa de preço: {{ preco }}</p>
                     </div>
                 </div>
             </div>

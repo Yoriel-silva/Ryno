@@ -31,24 +31,48 @@ templates = Jinja2Templates(directory="app/templates")
 # Redireciona para pagina home
 @app.get("/", response_class=HTMLResponse)
 def read_home(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})
+    user_email = request.session.get('user_email') #Pegar o email que está como email da seção
+    user = read(user_email)
+    #Validação para ver se o usario está logado, caso não impede ele de acessar a pagina de perfil
+    if not user:
+        user_logged_in = False
+    else:
+        user_logged_in = True
+    return templates.TemplateResponse("home.html", {"request": request,"user_logged_in": user_logged_in})
 
 # Redireciona para pagina do profissional
 @app.get("/profissional", response_class=HTMLResponse)
 def read_profissional(request: Request):
-    return templates.TemplateResponse("profissional.html", {"request": request})
+    user_email = request.session.get('user_email') #Pegar o email que está como email da seção
+    user = read(user_email)
+    #Validação para ver se o usario está logado, caso não impede ele de acessar a pagina de perfil
+    if not user:
+        user_logged_in = False
+    else:
+        user_logged_in = True
+    return templates.TemplateResponse("profissional.html", {"request": request,"user_logged_in": user_logged_in})
 
 # Redireciona para pagina de castro
 @app.get("/cadastro", response_class=HTMLResponse)
 def read_cadastro(request: Request):
-    return templates.TemplateResponse("cadastro.html", {"request": request})
+    user_email = request.session.get('user_email') #Pegar o email que está como email da seção
+    user = read(user_email)
+    #Validação para ver se o usario está logado, caso não impede ele de acessar a pagina de perfil
+    if not user:
+        user_logged_in = False
+    else:
+        user_logged_in = True
+    message = request.session.pop('message', None) #Recupera uma mensagem armazenada na sessão e remove essa mensagem da sessão
+    return templates.TemplateResponse("cadastro.html", {"request": request, "message": message, "user_logged_in": user_logged_in})
 
 # Post de Cadastro
 @app.post('/cadastro/enviar', response_class=HTMLResponse)
 def cadastro(
+    request: Request,
     nome: str = Form(...), 
     email: str = Form(...), 
-    senha: str = Form(...), 
+    senha: str = Form(...),
+    confirmar_senha: str = Form(...),
     tipo: Optional[str] = Form('aluno'),  # Switch pode ser None ou "on"
     telefone: Optional[str] = Form(None),  # Campos opcionais
     horario: Optional[str] = Form(None), 
@@ -56,6 +80,16 @@ def cadastro(
     preco: Optional[str] = Form(None),
     endereco: Optional[str] = Form(None)
 ):
+    # Verifica se as senhas coincidem
+    if senha != confirmar_senha:
+        request.session['message'] = "As senhas não coincidem. Por favor, tente novamente."
+        return RedirectResponse(url="/cadastro", status_code=303)
+
+    user = read(email)
+    if user:
+        request.session['message'] = "Este e-mail já está cadastrado. Por favor, use outro e-mail."
+        return RedirectResponse(url="/cadastro", status_code=303)
+
     tipo_final = tipo if tipo == "profissional" else "aluno"
 
     if tipo_final == "profissional":
@@ -86,13 +120,19 @@ def cadastro(
 # Redireciona para pagina de login
 @app.get("/login", response_class=HTMLResponse)
 def read_login(request: Request):
+    user_email = request.session.get('user_email') #Pegar o email que está como email da seção
+    user = read(user_email)
+    #Validação para ver se o usario está logado, caso não impede ele de acessar a pagina de perfil
+    if not user:
+        user_logged_in = False
+    else:
+        user_logged_in = True
     message = request.session.pop('message', None) #Recupera uma mensagem armazenada na sessão e remove essa mensagem da sessão
-    return templates.TemplateResponse("login.html", {"request": request, "message": message})
+    return templates.TemplateResponse("login.html", {"request": request, "message": message, "user_logged_in": user_logged_in})
 
 # Perfil
 @app.get("/perfil", response_class=HTMLResponse)
 def read_professor(request: Request):
-
     user_email = request.session.get('user_email') #Pegar o email que está como email da seção
     user = read(user_email)
     #Validação para ver se o usario está logado, caso não impede ele de acessar a pagina de perfil
@@ -100,10 +140,11 @@ def read_professor(request: Request):
         request.session['message'] = "Você precisa estar logado para acessar a página de perfil."
         return RedirectResponse(url="/login", status_code=303) #Redireciona para a pagina de login, com uma informação de que foi redirecionado
     else:
+        user_logged_in = True
         if user.tipo == 'aluno':
-            return templates.TemplateResponse("perfil_aluno.html", {"request": request, "nome": user.nome,"email": user.email, "senha": user.senha, "telefone": user.telefone, "endereco": user.endereco})
+            return templates.TemplateResponse("perfil_aluno.html", {"request": request, "nome": user.nome,"email": user.email, "senha": user.senha, "telefone": user.telefone, "endereco": user.endereco, "user_logged_in": user_logged_in})
         else:
-            return templates.TemplateResponse("perfil_professor.html", {"request": request, "nome": user.nome,"email": user.email, "senha": user.senha, "telefone": user.telefone, "endereco": user.endereco})
+            return templates.TemplateResponse("perfil_professor.html", {"request": request, "nome": user.nome,"email": user.email, "senha": user.senha, "telefone": user.telefone, "endereco": user.endereco,"modalidade": user.modalidade,"horario": user.horario,"preco":user.preco ,"user_logged_in": user_logged_in})
 
 #Rota de Logout
 @app.get("/perfil/logout", response_class=HTMLResponse)
