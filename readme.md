@@ -1,6 +1,6 @@
-# Projeto FastAPI
+# Projeto Ryno
 
-Este é um simples projeto utilizando FastAPI, com uma temática do mundo avatar, que posui um sistema de crud. Ele é conectado a um banco de dados usandoo SQLAlchemy para acesso, além de usar o Jinja2 para templates HTML.
+Este é projeto de um site que serve como intermediario entre cliente e profissionaus chamado Ryno.
 
 ## Pré-requisitos
 
@@ -21,26 +21,28 @@ pip install -r requirements.txt
 Clone este repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/Yoriel-silva/trabalho_final_prog_web
-cd trabalho_final_prog_web
+git clone https://github.com/Yoriel-silva/Ryno
+cd Ryno
 ```
 
 ### Execute o app.py
 ```bash
-python app.py
+python main.py
 ```
 
-O servidor FastAPI será iniciado e estará acessível em http://localhost:8000.
+O servidor FastAPI será iniciado e estará acessível em http://127.0.0.1:7777.
 
 ### Acessar o Projeto
 
-Index: http://localhost:8000/
+Home: http://127.0.0.1:7777
 
-Cadastro: http://localhost:8000/cadastro
+Cadastro: http://127.0.0.1:7777/cadastro
 
-Login: http://localhost:8000/login
+Login: http://127.0.0.1:7777/login
 
-Perfil: http://localhost:8000/perfil
+Perfil: http://127.0.0.1:7777/perfil
+
+Profissionais: http://127.0.0.1:7777/profissionais
 
 ## Estrutura do Projeto
 main.py: Configuração do FastAPI, definição de rotas e inicialização do servidor.
@@ -56,4 +58,5 @@ static/: Arquivos estáticos como CSS, imagens, etc.
 requirements.txt: Lista de dependências Python necessárias para o projeto.
 
 ## Contribuição
-Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests ou abrir issues para discutir recursos, problemas ou melhorias.
+Esse projeto foi desenvolvido durante o curso de Analise e Desenvolvimento de Sistemas, para a disciplina do Projeto Integrador
+Os participantes desse projeto são : Amanda Mafra, Artur Pereira, Giovanne Galleti, Gustavo Henrique e Yoriel Silva.

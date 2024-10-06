@@ -42,15 +42,17 @@
                     <div class="basquete">
                         <h4>Basquete</h4>
                     </div>
+                    {% for profissional in profissionais_basquete %}
                     <div class="professor-basquete">
-                        <img src="/static/Image/perfil.png" alt="">
+                        <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
                         <div>
-                            <p><span>João Silva</span></p>
-                            <p>(11) 11111-1111</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
+                            <p><span>{{ profissional.nome }}</span></p>
+                            <p>{{ profissional.telefone }}</p>
+                            <p>Horário: {{ profissional.horario }}</p>
+                            <p>Faixa de preço: R${{ profissional.preco }}</p>
                         </div>
                     </div>
+                    {% endfor %}
                     
                     <hr>
                     <div class="pilates">

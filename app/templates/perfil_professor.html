@@ -55,8 +55,28 @@
                     {% endif %}
                 </p>
                 <p>CREF</p>
+                <input type="submit" onclick="toggleBoth()" value="Editar"></input>
                 <button id="logout"><a href="/perfil/logout">Logout</a></button>
             </div>
+
+            <div id="edit" style="display: none;">
+                <form id="editForm" action="/perfil/editar" method="post">
+                    <label for="nomeInput">Nome:</label>
+                    <input type="text" id="nomeInput" name="nome" value="{{ nome }}">
+                    <br>
+                    <label for="emailInput">Email:</label>
+                    <input type="email" id="emailInput" name="email" value="{{ email }}">
+                    <br>
+                    <label for="telefoneInput">Telefone:</label>
+                    <input type="text" id="telefoneInput" name="telefone" value="{{ telefone }}">
+                    <br>
+                    <label for="enderecoInput">Enderco:</label>
+                    <input type="text" id="enderecoInput" name="endereco" value="{{ endereco }}">
+                    <br>
+                    <button type="button" onclick="submitCombinedForm()">Enviar</button>
+                </form>
+            </div>
+
             <div id="contato-container">
                 <h1>Profissionais Recentes</h1>
                 <div id="contato">
@@ -87,6 +107,7 @@
                             <p>Faixa de preço: R$00,00</p>
                         </div>
                     </div>
+                    
                     <h2>Meus Serviços</h2>
                     <div id="contato-p">
                         <p>Modalidade: {{ modalidade }}</p>
@@ -94,6 +115,24 @@
                         <p>Horário: {{ horario }}</p>
                         <p>Faixa de preço: {{ preco }}</p>
                     </div>
+
+                    <div id="edit-p" style="display: none;">
+                        <form id="editForm-p" action="/perfil/editar" method="post">
+                            <label for="modalidadeInput">Modalidade:</label>
+                            <input type="text" id="modalidadeInput" name="modalidade" value="{{ modalidade }}">
+                            <br>
+                            <label for="localInput">Local:</label>
+                            <input type="text" id="localInput" name="local" value="{{ local }}">
+                            <br>
+                            <label for="horarioInput">Horario:</label>
+                            <input type="text" id="horarioInput" name="horario" value="{{ horario }}">
+                            <br>
+                            <label for="precoInput">Preco:</label>
+                            <input type="text" id="precoInput" name="preco" value="{{ preco }}">
+                            <br>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -113,5 +152,7 @@
                 </div>
                 <p>E-mail : Ryno@gmail.com</p>        
             </footer>
-    </div></body>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
 </html>

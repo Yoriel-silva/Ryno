@@ -8,10 +8,9 @@ Front -
 Back-End:
 
 -mostrar dados perfil - decidir sobre local
-
--Atualizar informações - criar um botaõ e campo para poder Atualizar informações
-
-- exibir os profissionais cadastrados
+-Atualizar informações - arrumar front
+-exibir os profissionais cadastrados - corrigir front
+    
 
 opcional- 
     -exibir um historioco dos profissios/alunos que tiveram contato

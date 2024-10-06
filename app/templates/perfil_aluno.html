@@ -55,8 +55,29 @@
                         Endereço não informado
                     {% endif %}
                 </p>
+                <input type="submit" onclick="toggleEdit()" value="Editar"></input>
                 <button id="logout"><a href="/perfil/logout">Logout</a></button>
             </div>
+
+            <div id="edit" style="display: none;">
+                <form id="editForm" action="/perfil/editar" method="post">
+                    <label for="nomeInput">Nome:</label>
+                    <input type="text" id="nomeInput" name="nome" value="{{ nome }}">
+                    <br>
+                    <label for="emailInput">Email:</label>
+                    <input type="email" id="emailInput" name="email" value="{{ email }}">
+                    <br>
+                    <label for="telefoneInput">Senha:</label>
+                    <input type="text" id="telefoneInput" name="telefone" value="{{ telefone }}">
+                    <br>
+                    <label for="enderecoInput">Endereço:</label>
+                    <input type="text" id="enderecoInput" name="endereco" value="{{ endereco }}">
+                    <br>
+                    <input type="submit" value="Salvar"></input>
+                </form>
+            </div>
+
+
             <div id="contato">
                 <h1>Profissionais Recentes</h1>
                 <div id="professor">
@@ -113,5 +134,7 @@
             <p>E-mail : Ryno@gmail.com</p>        
             </footer>
 
-    </div></body>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
 </html>

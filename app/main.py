@@ -1,12 +1,12 @@
-from fastapi import FastAPI, Request, Form, HTTPException
+from fastapi import FastAPI, Request, Form, HTTPException, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse
 import uvicorn
 from Models.models import Usuario
-from CRUD.crud import create, read
+from CRUD.crud import create, read, update_aluno, update_prof, get_profissionais_basquete
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session as Session_n
 from starlette.middleware.sessions import SessionMiddleware
 from typing import Optional
 import os #Import para debug
@@ -14,6 +14,13 @@ import os #Import para debug
 # Conexão com DB
 db = create_engine("sqlite:///base.db", echo=True)
 Session = sessionmaker(bind=db)
+
+def get_db():
+    db = Session()
+    try:
+        yield db
+    finally:
+        db.close()
 
 # Variável para rodar o FastAPI
 app = FastAPI()
@@ -42,7 +49,7 @@ def read_home(request: Request):
 
 # Redireciona para pagina do profissional
 @app.get("/profissional", response_class=HTMLResponse)
-def read_profissional(request: Request):
+def read_profissional(request: Request, session: Session_n = Depends(get_db)):
     user_email = request.session.get('user_email') #Pegar o email que está como email da seção
     user = read(user_email)
     #Validação para ver se o usario está logado, caso não impede ele de acessar a pagina de perfil
@@ -50,7 +57,11 @@ def read_profissional(request: Request):
         user_logged_in = False
     else:
         user_logged_in = True
-    return templates.TemplateResponse("profissional.html", {"request": request,"user_logged_in": user_logged_in})
+    
+    profissionais_basquete = get_profissionais_basquete(session)
+    print(profissionais_basquete)
+
+    return templates.TemplateResponse("profissional.html", {"request": request,"user_logged_in": user_logged_in, "profissionais_basquete": profissionais_basquete})
 
 # Redireciona para pagina de castro
 @app.get("/cadastro", response_class=HTMLResponse)
@@ -196,6 +207,26 @@ def redirect_to_facebook():
 def redirect_to_wpp():
     wpp_url = "https://wa.me/seu_numero" # Substituir seu_numero pelo numero do sistema desse modo: 55619xxxxxxxx
     return RedirectResponse(url=wpp_url)
+
+#Rota Pagina Peril Update
+@app.post('/perfil/editar', response_class=HTMLResponse)
+def perfil_editar(request: Request,nome:str = Form(...), email: str = Form(...), telefone: str = Form(...), endereco: str = Form(...), modalidade: Optional[str] = Form(None), horario: Optional[str] = Form(None), preco: Optional[str] = Form(None),):
+    user = read(email)
+    session_email = request.session.get('user_email') #Pegar o email que está como email da seção
+    if user and user.email != session_email:
+        request.session['message'] = "Este e-mail já está cadastrado. Por favor, use outro e-mail."
+        return RedirectResponse(url="/perfil", status_code=303)
+    
+    user = read(session_email)
+
+    if user.tipo == 'aluno':
+        update_aluno(nome,email,telefone,endereco,session_email)
+    else:
+        update_prof(nome,email,telefone,endereco,modalidade,horario,preco,session_email)
+    user = read(email)
+    request.session['user_email'] = user.email #Faz com que o email do usurio seja o email da seção
+    return RedirectResponse(url=f"/perfil", status_code=303)
+
 
 # Roda o programa
 if __name__ == "__main__":
