@@ -118,11 +118,10 @@ main img{
     color: #ffffff;
     text-transform: uppercase;
 }
-
 .professor-basquete,
 .professor-pilates,
 .professor-musculacao{
-    display: flex;
+    display: inline-flex;
     background-color: #111010;
     border-radius: 20px;
     align-items: center;
@@ -131,13 +130,11 @@ main img{
     margin-left: 30px;
     transition: transform 0.3s ease;
 }
-
 .professor-basquete:hover,
 .professor-pilates:hover,
 .professor-musculacao:hover {
     transform: scale(1.05);
 }
-
 .professor-basquete p,
 .professor-pilates p,
 .professor-musculacao p{
@@ -155,7 +152,6 @@ main img{
     font-size: 12px;
     font-weight: bold; 
 }
-
 /* Footer */
 footer {
     padding: 20px 0;

@@ -55,8 +55,10 @@
                     {% endif %}
                 </p>
                 <p>CREF</p>
-                <input type="submit" onclick="toggleBoth()" value="Editar"></input>
-                <button id="logout"><a href="/perfil/logout">Logout</a></button>
+                <div id="botao">
+                    <input id="editar" type="submit" onclick="toggleBoth()" value="Editar"></input>
+                    <button id="logout"><a href="/perfil/logout">Logout</a></button>
+                </div>
             </div>
 
             <div id="edit" style="display: none;">
