@@ -82,11 +82,11 @@ def update_prof(nome: str, email: str, telefone: str, endereco: str, modalidade:
         return None
     
 # Função para buscar profissionais da modalidade basquete
-def get_profissionais_basquete(session: Session_n):
+def get_profissionais_modalidade(session: Session_n,modalidade_profissional):
     # Faz a consulta para buscar todos os usuários do tipo 'profissional' e modalidade 'basquete'
-    profissionais_basquete = session.query(Usuario).filter(
+    profissionais_modalidade = session.query(Usuario).filter(
         Usuario.tipo == 'profissional',  # Verifica se o tipo é 'professor'
-        Usuario.modalidade == 'basquete'  # Verifica se a modalidade é 'basquete'
+        Usuario.modalidade == modalidade_profissional  # Verifica se a modalidade é 'basquete'
     ).all()  # Pega todos os resultados que satisfazem a condição
 
-    return profissionais_basquete
+    return profissionais_modalidade

@@ -1,16 +1,7 @@
 Front -
-- mudar os links do nav para ir diretamente para a página desejada
-- linkar as areas especificar para também ir a página designada
-- 
-
-
-
-Back-End:
-
+-Decidir sobre a parte aluno 
 -mostrar dados perfil - decidir sobre local
--Atualizar informações - arrumar front
--exibir os profissionais cadastrados - corrigir front
-    
+-exibir os profissionais cadastrados - scroll
 
 opcional- 
     -exibir um historioco dos profissios/alunos que tiveram contato

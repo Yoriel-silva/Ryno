@@ -41,7 +41,7 @@
                 {% endif %}
                 <legend>REGISTRE-SE</legend>
                 <input type="text" name="nome" id="nome" placeholder="Nome"><br>
-                <input type="text" name="email" id="email" placeholder="E-mail"><br>
+                <input type="email" name="email" id="email" placeholder="E-mail"><br>
                 <input type="password" name="senha" id="senha" placeholder="Digite sua Senha">
                 <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua Senha"><br>
                 
@@ -61,7 +61,17 @@
 
                     <input type="text" id="horario" name="horario" placeholder="Horário Vago:16:00-19:00">
 
-                    <input type="text" id="modalidade" name="modalidade" placeholder="Modalidade: Personal">
+                    <!--<input type="text" id="modalidade" name="modalidade" placeholder="Modalidade: Personal">-->
+                    <div class="custom-select">
+                        <div class="select-selected">Selecione uma modalidade</div>
+                        <div class="select-items">
+                            <div data-value="basquete">Basquete</div>
+                            <div data-value="pilates">Pilates</div>
+                            <div data-value="musculacao">Musculação</div>
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" id="modalidade" name="modalidade">
 
                     <input type="text" id="preco" name="preco" placeholder="Hora Aula: R$50,00">
 

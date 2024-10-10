@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse
 import uvicorn
 from Models.models import Usuario
-from CRUD.crud import create, read, update_aluno, update_prof, get_profissionais_basquete
+from CRUD.crud import create, read, update_aluno, update_prof, get_profissionais_modalidade, delete
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session as Session_n
 from starlette.middleware.sessions import SessionMiddleware
@@ -58,10 +58,11 @@ def read_profissional(request: Request, session: Session_n = Depends(get_db)):
     else:
         user_logged_in = True
     
-    profissionais_basquete = get_profissionais_basquete(session)
-    print(profissionais_basquete)
+    profissionais_basquete = get_profissionais_modalidade(session, 'basquete')
+    profissionais_pilates = get_profissionais_modalidade(session, 'pilates')
+    profissionais_musculacao = get_profissionais_modalidade(session, 'musculação')
 
-    return templates.TemplateResponse("profissional.html", {"request": request,"user_logged_in": user_logged_in, "profissionais_basquete": profissionais_basquete})
+    return templates.TemplateResponse("profissional.html", {"request": request,"user_logged_in": user_logged_in, "profissionais_basquete": profissionais_basquete, "profissionais_pilates": profissionais_pilates, "profissionais_musculacao": profissionais_musculacao})
 
 # Redireciona para pagina de castro
 @app.get("/cadastro", response_class=HTMLResponse)
@@ -107,15 +108,15 @@ def cadastro(
         if not telefone or not horario or not modalidade or not preco or not endereco:
             return HTMLResponse(content="Preencha todos os campos adicionais.", status_code=400)
         usuario = Usuario(
-            nome=nome,
+            nome=nome.lower().capitalize(),
             email=email,
             senha=senha,
             tipo=tipo_final,
             telefone=telefone,
             horario=horario,
-            modalidade=modalidade,
+            modalidade=modalidade.lower(),
             preco=preco,
-            endereco=endereco
+            endereco=endereco.lower().capitalize()
         )
     else:
         usuario = Usuario(
@@ -183,6 +184,12 @@ def login(request: Request, email: str = Form(...), senha: str = Form(...)):
     # Redirecionar para a página do perfil do aluno
     return RedirectResponse(url="/perfil", status_code=303)
 
+#Rota Pagina Perfil Delete
+@app.get("/perfil/delete")
+def deletar(request: Request):
+    user_email = request.session.get('user_email')
+    delete(user_email)
+    return RedirectResponse(url=f"/perfil/logout", status_code=303)
 
 # Redireciona para pagina do instagram
 @app.get("/redirect-to-instagram")

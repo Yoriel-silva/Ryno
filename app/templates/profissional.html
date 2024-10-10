@@ -57,81 +57,33 @@
                     <div class="pilates">
                         <h4>Pilates</h4>
                     </div>
+                    {% for profissional in profissionais_pilates %}
                     <div class="professor-pilates">
-                        <img src="/static/Image/perfil.png" alt="">
+                        <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
                         <div>
-                            <p><span>João Silva</span></p>
-                            <p>(22) 22222-2222</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
+                            <p><span>{{ profissional.nome }}</span></p>
+                            <p>{{ profissional.telefone }}</p>
+                            <p>Horário: {{ profissional.horario }}</p>
+                            <p>Faixa de preço: R${{ profissional.preco }}</p>
                         </div>
                     </div>
-                    <div class="professor-pilates">
-                        <img src="/static/Image/perfil.png" alt="">
-                        <div>
-                            <p><span>João Silva</span></p>
-                            <p>(22) 22222-2222</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
-                        </div>
-                    </div>
-                    <div class="professor-pilates">
-                        <img src="/static/Image/perfil.png" alt="">
-                        <div>
-                            <p><span>João Silva</span></p>
-                            <p>(22) 22222-2222</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
-                        </div>
-                    </div>
-                    <div class="professor-pilates">
-                        <img src="/static/Image/perfil.png" alt="">
-                        <div>
-                            <p><span>João Silva</span></p>
-                            <p>(22) 22222-2222</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                     <hr>
                     <div class="musculacao">
                         <h4>Musculação</h4>
                     </div>
+                    {% for profissional in profissionais_musculacao %}
                     <div class="professor-musculacao">
-                        <img src="/static/Image/perfil.png" alt="">
+                        <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
                         <div>
-                            <p><span>João Silva</span></p>
-                            <p>(33) 33333-3333</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
+                            <p><span>{{ profissional.nome }}</span></p>
+                            <p>{{ profissional.telefone }}</p>
+                            <p>Horário: {{ profissional.horario }}</p>
+                            <p>Faixa de preço: R${{ profissional.preco }}</p>
                         </div>
                     </div>
-                    <div class="professor-musculacao">
-                        <img src="/static/Image/perfil.png" alt="">
-                        <div>
-                            <p><span>João Silva</span></p>
-                            <p>(33) 33333-3333</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
-                        </div>
-                    </div>
-                    <div class="professor-musculacao">
-                        <img src="/static/Image/perfil.png" alt="">
-                        <div>
-                            <p><span>João Silva</span></p>
-                            <p>(33) 33333-3333</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
-                        </div>
-                    </div>
-                    <div class="professor-musculacao">
-                        <img src="/static/Image/perfil.png" alt="">
-                        <div>
-                            <p><span>João Silva</span></p>
-                            <p>(33) 33333-3333</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
-                        </div>
+                    {% endfor %}
+                    
                     </div>
                 </div>
             </main>

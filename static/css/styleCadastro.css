@@ -338,3 +338,46 @@ input:checked + .slider:before {
 #tipo{
     margin-top: 10px;
 }
+
+ /* Estilo para o contêiner do menu */
+ .custom-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Estilo para o botão do menu */
+.select-selected {
+    background-color: #000000;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    user-select: none;
+    color: #727272; /* Cor semelhante a um placeholder */
+    font-style: Arial; /* Itálico para simular um placeholder */
+    font-size: 14px;
+    text-align: left;
+}
+
+/* Estilo para a lista de opções */
+.select-items {
+    display: none; /* Oculto por padrão */
+    position: absolute;
+    background-color: #000000;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    width: 100%;
+    z-index: 99;
+}
+
+/* Estilo para cada item da lista */
+.select-items div {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilo ao passar o mouse sobre as opções */
+.select-items div:hover {
+    color: #41094c;
+}

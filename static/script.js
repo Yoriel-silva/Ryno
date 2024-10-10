@@ -75,3 +75,66 @@ function submitCombinedForm() {
     // Submete o formulário combinado (form1)
     form1.submit();
 }
+
+
+// Função para confirmar e deletar conta
+// Função para abrir o modal
+function abrirModal() {
+    document.getElementById("confirmModal").style.display = "block";
+}
+
+// Função para fechar o modal
+function fecharModal() {
+    document.getElementById("confirmModal").style.display = "none";
+}
+
+function confirmarDelecao() {
+    // Fecha o modal
+    fecharModal();
+
+    // Chamada à API para deletar a conta
+    fetch(`http://127.0.0.1:7777/perfil/delete`, {
+        method: 'GET',
+    })
+    .then(response => {
+        if (response.ok) {
+            // Redirecionar ou atualizar a página após a exclusão
+            window.location.href = "perfil/logout";
+        } else {
+            alert("Erro ao deletar a conta.");
+        }
+    })
+    .catch(error => {
+        alert("Ocorreu um erro ao tentar deletar a conta.");
+        console.error(error);
+    });
+}
+
+//menu
+const selectSelected = document.querySelector('.select-selected');
+const selectItems = document.querySelector('.select-items');
+const hiddenInput = document.getElementById('modalidade');
+
+// Abre ou fecha a lista de opções
+selectSelected.addEventListener('click', function() {
+    selectItems.style.display = selectItems.style.display === 'block' ? 'none' : 'block';
+});
+
+// Atualiza a seleção
+selectItems.addEventListener('click', function(event) {
+    if (event.target.matches('div')) {
+        selectSelected.textContent = event.target.textContent; // Atualiza o texto do botão
+        hiddenInput.value = event.target.getAttribute('data-value'); // Atualiza o valor do input oculto
+        selectItems.style.display = 'none'; // Fecha a lista de opções
+
+        // Restaura a cor do texto após uma seleção
+        selectSelected.style.color = '#ffffff'; // Cor do texto normal
+    }
+});
+
+// Fecha a lista de opções se clicar fora
+document.addEventListener('click', function(event) {
+    if (!selectSelected.contains(event.target)) {
+        selectItems.style.display = 'none';
+    }
+});
