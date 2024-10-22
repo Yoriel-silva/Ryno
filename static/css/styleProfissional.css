@@ -4,7 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+hr{
+    color: #727272;
+}
 body {
     background-color: #000000;
     font-family: 'Poppins', sans-serif;
@@ -151,6 +153,46 @@ main img{
     color: #4A0B57;
     font-size: 12px;
     font-weight: bold; 
+}
+/* Scroll Lateral */
+.scroll-container {
+    display: flex;
+    overflow-x: hidden; /* Esconde a barra de rolagem */
+    scroll-behavior: smooth; /* Rolagem suave */
+    padding: 10px 0;
+    transition: transform 1s ease; /* Suaviza a transição ao mover */
+}
+.scroll-container > div {
+    min-width: 400px;
+    margin-right: 20px;
+}
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem */
+}
+.scroll-button {
+    background-color: #4A0B57;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    margin: 0 10px;
+}
+
+.scroll-button:hover {
+    background-color: #5B1D74;
+}
+
+.scroll-button.left {
+    position: absolute;
+    left: 0;
+}
+
+.scroll-button.right {
+    position: absolute;
+    right: 0;
 }
 /* Footer */
 footer {

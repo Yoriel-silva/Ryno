@@ -2,6 +2,9 @@ body {
     background: #222222;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+hr{
+  color: #727272;
+}
 
 #container {
     width: 95%;

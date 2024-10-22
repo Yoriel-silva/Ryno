@@ -34,59 +34,70 @@
                     </ul>
                 </nav>
             </header>
-            <main>
-                <div class="main">
-                    <div class="profissionais">
-                        <h4>Profissionais Perto De Você</h4>
-                    </div>
-                    <div class="basquete">
-                        <h4>Basquete</h4>
-                    </div>
-                    {% for profissional in profissionais_basquete %}
-                    <div class="professor-basquete">
-                        <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
-                        <div>
-                            <p><span>{{ profissional.nome }}</span></p>
-                            <p>{{ profissional.telefone }}</p>
-                            <p>Horário: {{ profissional.horario }}</p>
-                            <p>Faixa de preço: R${{ profissional.preco }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    <hr>
-                    <div class="pilates">
-                        <h4>Pilates</h4>
-                    </div>
-                    {% for profissional in profissionais_pilates %}
-                    <div class="professor-pilates">
-                        <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
-                        <div>
-                            <p><span>{{ profissional.nome }}</span></p>
-                            <p>{{ profissional.telefone }}</p>
-                            <p>Horário: {{ profissional.horario }}</p>
-                            <p>Faixa de preço: R${{ profissional.preco }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    <hr>
-                    <div class="musculacao">
-                        <h4>Musculação</h4>
-                    </div>
-                    {% for profissional in profissionais_musculacao %}
-                    <div class="professor-musculacao">
-                        <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
-                        <div>
-                            <p><span>{{ profissional.nome }}</span></p>
-                            <p>{{ profissional.telefone }}</p>
-                            <p>Horário: {{ profissional.horario }}</p>
-                            <p>Faixa de preço: R${{ profissional.preco }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    
-                    </div>
+<main>
+    <div class="main">
+        <div class="profissionais">
+            <h4>Profissionais Perto De Você</h4>
+        </div>
+        <div class="basquete">
+            <h4>Basquete</h4>
+        </div>
+        <div class="scroll-container basquete-container">
+            <button class="scroll-button left" data-category="basquete">&#8249;</button>
+            {% for profissional in profissionais_basquete %}
+            <div class="professor-basquete">
+                <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
+                <div>
+                    <p><span>{{ profissional.nome }}</span></p>
+                    <p>{{ profissional.telefone }}</p>
+                    <p>Horário: {{ profissional.horario }}</p>
+                    <p>Faixa de preço: R${{ profissional.preco }}</p>
                 </div>
-            </main>
+            </div>
+            {% endfor %}
+            <button class="scroll-button right" data-category="basquete">&#8250;</button>
+        </div>
+        <hr>
+        <div class="pilates">
+            <h4>Pilates</h4>
+        </div>
+        <div class="scroll-container pilates-container">
+            <button class="scroll-button left" data-category="pilates">&#8249;</button>
+            {% for profissional in profissionais_pilates %}
+            <div class="professor-pilates">
+                <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
+                <div>
+                    <p><span>{{ profissional.nome }}</span></p>
+                    <p>{{ profissional.telefone }}</p>
+                    <p>Horário: {{ profissional.horario }}</p>
+                    <p>Faixa de preço: R${{ profissional.preco }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <button class="scroll-button right" data-category="pilates">&#8250;</button>
+        </div>
+        <hr>
+        <div class="musculacao">
+            <h4>Musculação</h4>
+        </div>
+        <div class="scroll-container musculacao-container">
+            <button class="scroll-button left" data-category="musculacao">&#8249;</button>
+            {% for profissional in profissionais_musculacao %}
+            <div class="professor-musculacao">
+                <img src="/static/Image/perfil.png" alt="Profile picture of {{ profissional.nome }}">
+                <div>
+                    <p><span>{{ profissional.nome }}</span></p>
+                    <p>{{ profissional.telefone }}</p>
+                    <p>Horário: {{ profissional.horario }}</p>
+                    <p>Faixa de preço: R${{ profissional.preco }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <button class="scroll-button right" data-category="musculacao">&#8250;</button>
+        </div>
+    </div>
+</main>
+
             <footer>
                 <div class="social-buttons">
                     <a href="https://www.facebook.com" target="_blank" class="social-button">
@@ -103,4 +114,5 @@
             </footer>
         </div>
     </body>
+    <script src="/static/scriptProfissional.js"></script>
 </html>
