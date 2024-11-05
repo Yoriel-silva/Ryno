@@ -7,7 +7,9 @@
 hr{
     color: #727272;
 }
+html{
 
+}
 /* Configurações gerais do body */
 body {
     background-color: #000000;
@@ -77,10 +79,12 @@ nav .menu li a:hover {
 /* Título e Introdução */
 .intro {
     font-family: "Libre Franklin", sans-serif;
-    text-align: left;
+    text-align: center;
     max-width: 90vw;
-    padding: 0 10px; 
-    box-sizing: border-box; 
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 200px;
+
 }
 
 .title {

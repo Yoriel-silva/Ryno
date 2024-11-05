@@ -160,7 +160,9 @@ main img{
     overflow-x: hidden; /* Esconde a barra de rolagem */
     scroll-behavior: smooth; /* Rolagem suave */
     padding: 10px 0;
-    transition: transform 1s ease; /* Suaviza a transição ao mover */
+    transition: 1s ease; /* Suaviza a transição ao mover */
+    margin-left: 50px;
+    margin-right: 70px;
 }
 .scroll-container > div {
     min-width: 400px;
@@ -173,12 +175,14 @@ main img{
     background-color: #4A0B57;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 15px;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
     z-index: 10;
-    margin: 0 10px;
+    width: 50px; /* Define uma largura fixa */
+    height: 50px;
+    margin: 10px 10px;
 }
 
 .scroll-button:hover {
