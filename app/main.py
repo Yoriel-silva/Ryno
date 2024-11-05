@@ -30,7 +30,10 @@ SECRET_KEY = "12345"
 app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 
 # Montar pasta STATIC, lá ficam o css e as imagens
-app.mount("/static", StaticFiles(directory="../Ryno/static"), name="static")
+# app.mount("/static", StaticFiles(directory="../Ryno/static"), name="static")
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 # Pasta HTML
 templates = Jinja2Templates(directory="app/templates")
