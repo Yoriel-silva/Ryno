@@ -7,14 +7,12 @@
 hr{
     color: #727272;
 }
-html{
-
-}
 /* Configurações gerais do body */
 body {
     background-color: #000000;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
+    min-width: 500px;
 }
 
 /* Header */
@@ -129,15 +127,70 @@ nav .menu li a:hover {
     z-index: 1;
 }
 
+/* Estilo para as imagens */
+.imagem-container {
+    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+  }
+  
+  .imagem-halter, .imagem-luta {
+    width: 100%;
+    height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+    display: block;
+  }
+  
+  /* Pseudo-elemento para a película roxa */
+  .imagem-container::before {
+    content: ''; /* Necessário para criar o pseudo-elemento */
+    position: absolute; /* Posiciona o pseudo-elemento sobre a imagem */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(128, 0, 128, 0.5); /* Cor roxa com opacidade de 50% */
+    z-index: 1; /* Garante que a película fique acima da imagem */
+  }
+  
+  /* Garantir que a imagem não seja coberta pelo pseudo-elemento */
+  .imagem-container img {
+    position: relative;
+    z-index: 0; /* Coloca a imagem abaixo da película */
+  }
+  
+
+.section1, .section2{
+    color: white;
+    text-align: center;
+}
+.title-section{
+    font-weight: bold;
+    color: #000000;
+    position: relative;
+    padding: 5px;
+    font-size: 70px;
+    text-shadow:
+        -1px -1px 0 #4A0B57,
+        1px -1px 0 #4A0B57,
+        -1px 1px 0 #4A0B57,
+        1px 1px 0 #4A0B57;
+    position: relative;
+    top: -10px;
+    margin-left: -5px;
+}
+
+
+
 /* Sobre a Academia */
 .about {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 50px 0;
-    margin-left: 70px;
+    margin: 0px 0;
+    width: 100%;
     position: relative;
     min-height: 40vh;
+    flex: 1;
+    background-color: #333333;
+    padding-right: 10px;
 }
 
 .content-box {
@@ -152,7 +205,7 @@ nav .menu li a:hover {
 .about-img {
     max-width: 200px;
     margin-right: 20px;
-    margin-left: 10px;
+    margin-left: -30px;
     height: 150px;
 }
 
@@ -160,6 +213,8 @@ nav .menu li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: auto;
+    margin-left: -5px;
 }
 
 .about-text h2 {
@@ -172,6 +227,7 @@ nav .menu li a:hover {
 .about-text p {
     font-size: 14px;
     color: #aeabab;
+    max-height: 200px;
 }
 
 /* Botão */
@@ -199,22 +255,23 @@ nav .menu li a:hover {
 
 /* Imagem Personal */
 .side-img {
-    position: absolute;
-    right: 150px;
-    top: -169px;
-    max-width: 50%;
-    height: 580px;
-    border-radius: 10px;
-    z-index: 2;
+    max-width: 40%;
+    position: relative;
+    top: 10px;
+    right: 10px;
 }
 
 /* Nova Seção */
+.clear{
+    flex-wrap: wrap;
+}
 .new-section {
     background-color: #111010;
     color: #fff;
     padding: 30px 0 10px 0;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .content-wrapper {
@@ -290,7 +347,7 @@ nav .menu li a:hover {
     max-width: 40%;
     position: relative;
     top: 10px;
-    right: 200px;
+    right: 40px;
 }
 
 /* Seção de Modalidades */
@@ -503,7 +560,8 @@ nav .menu li a:hover {
     font-size: 12px;
     color: #aeabab;
 }
-@media (max-width: 1024px) {
+
+/* @media (max-width: 1024px) {
     .side-img {
         right: 10px;
         top: -203px;
@@ -592,8 +650,4 @@ nav .menu li a:hover {
     .icon-box p {
         font-size: 0.9rem;
     }
-    .body {
-        width: 100%;
-        max-width: 100%;
-    }
-}
+} */
