@@ -168,10 +168,10 @@ nav .menu li a:hover {
     padding: 5px;
     font-size: 70px;
     text-shadow:
-        -1px -1px 0 #4A0B57,
-        1px -1px 0 #4A0B57,
-        -1px 1px 0 #4A0B57,
-        1px 1px 0 #4A0B57;
+        -1px -1px 0 #ffff,
+        1px -1px 0 #ffff,
+        -1px 1px 0 #ffff,
+        1px 1px 0 #ffff;
     position: relative;
     top: -10px;
     margin-left: -5px;

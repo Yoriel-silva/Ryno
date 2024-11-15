@@ -89,14 +89,20 @@ p, h1 {
 main{
     display: flex;
 }
+#botao{
+    display: flex;
+    gap: 1.6rem;
+    width: 100%;
+    justify-content: center;
+}
 #logout, #delete{
-    margin-top: 10px;
+    margin-top: 5.5%;
     border-radius: 20px;
     background-color: red;
     border: none;
     color: #fff;
-    width: 150px;
-    height: 40px;
+    width: 95px;
+    height: 80%;
     opacity: 0.7;
     transition: .5s;
 }
@@ -108,18 +114,14 @@ main{
     opacity: 1;
     cursor: pointer;
 }
-#botao{
-    display: flex;
-    gap: 1.6rem;
-}
-#editar, #enviar-btn{
-    margin-top: 10px;
+#editar{
+    margin-top: 5.5%;
     border-radius: 20px;
     background-color: #4A0B57;
     border: none;
     color: #fff;
-    width: 150px;
-    height: 40px;
+    width: 95px;
+    height: 80%;
     opacity: 0.7;
     transition: .5s;
 }
@@ -132,40 +134,60 @@ main{
     margin: 0 auto;
     margin-top: 10px;
 }
-
 #perfil, #edit{
+    font-family: "Libre Franklin", sans-serif;
     display: flex;
     flex-direction: column;
     width: 50%;
-    border-right: 1px solid #fff;
     text-align: center;
     align-items: center;
-}
-
-#perfil h1 , #edit h1{
+    border-right: 1px solid #fff;
+    margin-left: 10px;
     margin-top: 40px;
-    font-family: "Libre Franklin", sans-serif;
-    text-transform: uppercase;
-    font-size: 24px;
 }
 
-#perfil img, #edit img{
-    width: 200px;
+#perfil img, #edit img {
+    width: 30%;
 }
 
-#perfil p, #edit p{
+#perfil p{
     border-bottom: 1px solid #fff;
     margin-bottom: 10px;
-    width: 400px;
+    width: 80%;
     text-align: center;
-    line-height: 1.6;
+    line-height: 1.6
+}
+#edit input, #edit-p input{
+    border: none; /* Remove a borda padrão */
+    border-bottom: 1px solid #fff; /* Borda inferior */
+    margin-bottom: 10px; /* Espaço abaixo do input */
+    width: 50%; /* Largura do input */
+    text-align: center; /* Centraliza o texto */
+    line-height: 1.6; /* Espaçamento entre linhas */
+    background: transparent; /* Fundo transparente */
+    color: #fff; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Estilo para o foco do input (opcional) */
+#edit input:focus, #edit-p input:focus {
+    outline: none; /* Remove o contorno padrão ao focar */
+    border-bottom: 1px solid #fff; /* Mantém a borda inferior */
+}
+#contato-p, #edit-p {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%; 
 }
 #contato{
+    font-family: "Libre Franklin", sans-serif;
     display: flex;
     flex-direction: column;
     width: 50%;
     text-align: center;
     align-items: center;
+    color: #fff;
     margin-top: 40px;
 }
 
@@ -184,11 +206,11 @@ main{
     background-color: #111010;
     border-radius: 20px;
     align-items: center;
-    width: 400px;
-    height: 100px;
+    width: 80%;
+    height: 20%;
     margin-left: 10px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-top: 20px;
     transition: transform 0.3s ease;
 }
@@ -197,9 +219,10 @@ main{
     transform: scale(1.05); 
 }
 
-#professor img{
+#professor img {
     width: 60px;
     height: 60px;
+    margin-left: 10px;
 }
 #professor p{
     font-size: 12px;
@@ -208,7 +231,6 @@ main{
     line-height: 1.6;
 
 }
-
 #professor span {
     color: #4A0B57;
     font-size: 12px;

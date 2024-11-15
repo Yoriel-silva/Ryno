@@ -93,15 +93,20 @@ h1 {
 main{
     display: flex;
 }
-
+#botao{
+    display: flex;
+    gap: 1.6rem;
+    width: 100%;
+    justify-content: center;
+}
 #logout, #delete{
-    margin-top: 10px;
+    margin-top: 5.5%;
     border-radius: 20px;
     background-color: red;
     border: none;
     color: #fff;
-    width: 150px;
-    height: 40px;
+    width: 95px;
+    height: 80%;
     opacity: 0.7;
     transition: .5s;
 }
@@ -113,14 +118,14 @@ main{
     opacity: 1;
     cursor: pointer;
 }
-#editar, #enviar-btn{
-    margin-top: 10px;
+#editar{
+    margin-top: 5.5%;
     border-radius: 20px;
     background-color: #4A0B57;
     border: none;
     color: #fff;
-    width: 150px;
-    height: 40px;
+    width: 95px;
+    height: 80%;
     opacity: 0.7;
     transition: .5s;
 }
@@ -133,10 +138,6 @@ main{
 #editar:hover, #enviar-btn:hover{
     opacity: 1;
     cursor: pointer;
-}
-#botao{
-    display: flex;
-    gap: 1.6rem;
 }
 #perfil, #edit{
     font-family: "Libre Franklin", sans-serif;
@@ -151,13 +152,13 @@ main{
 }
 
 #perfil img, #edit img {
-    width: 200px;
+    width: 30%;
 }
 
 #perfil p{
     border-bottom: 1px solid #fff;
     margin-bottom: 10px;
-    width: 400px;
+    width: 80%;
     text-align: center;
     line-height: 1.6
 }
@@ -166,7 +167,7 @@ main{
     border: none; /* Remove a borda padrão */
     border-bottom: 1px solid #fff; /* Borda inferior */
     margin-bottom: 10px; /* Espaço abaixo do input */
-    width: 400px; /* Largura do input */
+    width: 50%; /* Largura do input */
     text-align: center; /* Centraliza o texto */
     line-height: 1.6; /* Espaçamento entre linhas */
     background: transparent; /* Fundo transparente */
@@ -192,8 +193,11 @@ main{
     margin-top: 40px;
 }
 #contato-container h2{
-    width: 90%;
+    width: 100%;
     margin-left: 20px;
+}
+#contato{
+    width: 60%;
 }
 
 /* Contato P */
@@ -219,8 +223,8 @@ main{
     background-color: #111010;
     border-radius: 20px;
     align-items: center;
-    width: 400px;
-    height: 100px;
+    width: 100%;
+    height: 20%;
     margin-left: 10px;
     text-align: center;
     margin-bottom: 30px;
@@ -231,7 +235,6 @@ main{
 #professor:hover {
     transform: scale(1.05); 
 }
-
 #professor img {
     width: 60px;
     height: 60px;
@@ -254,7 +257,6 @@ main{
 #clear{
     clear: both;
 }
-
 /* Footer */
 footer {
     padding: 20px 0;
