@@ -81,7 +81,7 @@ nav .menu li a:hover {
     max-width: 90vw;
     padding: 0 10px;
     box-sizing: border-box;
-    margin-bottom: 200px;
+    margin-bottom: 5%;
 
 }
 
@@ -118,7 +118,7 @@ nav .menu li a:hover {
 
 .description {
     font-family: "Poppins", sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.4;
     color: #aeabab;
     margin-top: 10px;
@@ -129,37 +129,32 @@ nav .menu li a:hover {
 
 /* Estilo para as imagens */
 .imagem-container {
-    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    text-align: center;      /* Garantir que o conteúdo dentro do contêiner seja centralizado */
   }
   
   .imagem-halter, .imagem-luta {
-    width: 100%;
+    width: 80%;
     height: auto; /* Ajusta a altura automaticamente para manter a proporção */
     display: block;
+    justify-content: center;
+    align-items: center;
   }
-  
-  /* Pseudo-elemento para a película roxa */
-  .imagem-container::before {
-    content: ''; /* Necessário para criar o pseudo-elemento */
-    position: absolute; /* Posiciona o pseudo-elemento sobre a imagem */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(128, 0, 128, 0.5); /* Cor roxa com opacidade de 50% */
-    z-index: 1; /* Garante que a película fique acima da imagem */
-  }
-  
-  /* Garantir que a imagem não seja coberta pelo pseudo-elemento */
   .imagem-container img {
     position: relative;
     z-index: 0; /* Coloca a imagem abaixo da película */
   }
-  
-
 .section1, .section2{
-    color: white;
+    color: #aeabab;
     text-align: center;
+    margin-bottom: 8%;
+}
+.section1 p, .section2 p{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .title-section{
     font-weight: bold;
