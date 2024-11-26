@@ -15,6 +15,7 @@ body {
     flex-direction: column;
 }
 
+
 /* Header */
 header {
     display: flex;
@@ -92,6 +93,7 @@ h1 {
 /* Main */
 main{
     display: flex;
+    padding-bottom: 50px;
 }
 #botao{
     display: flex;
@@ -133,6 +135,15 @@ main{
 #enviar-btn{
     margin: 0 auto;
     margin-top: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #4A0B57;
+    border: none;
+    color: #fff;
+    width: 95px;
+    height: 80%;
+    opacity: 0.7;
+    transition: .5s;
 }
 
 #editar:hover, #enviar-btn:hover{
@@ -196,6 +207,13 @@ main{
     width: 100%;
     margin-left: 20px;
 }
+
+#contato h1 {
+    font-family: "Libre Franklin", sans-serif;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
 #contato{
     width: 60%;
 }
@@ -227,9 +245,10 @@ main{
     height: 20%;
     margin-left: 10px;
     text-align: center;
-    margin-bottom: 30px;
-    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
     transition: transform 0.3s ease;
+    padding: 10px 0 10px;
 }
 
 #professor:hover {

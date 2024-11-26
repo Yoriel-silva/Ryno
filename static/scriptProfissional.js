@@ -1,11 +1,4 @@
 document.querySelectorAll('.scroll-container').forEach(container => {
-    const items = container.querySelectorAll('div.professor-basquete, div.professor-pilates, div.professor-musculacao');
-    
-    // Clona todos os itens e os adiciona ao final
-    items.forEach(item => {
-        const clone = item.cloneNode(true);
-        container.appendChild(clone);
-    });
 
     const scrollAmount = 200; // A quantidade de rolagem
 

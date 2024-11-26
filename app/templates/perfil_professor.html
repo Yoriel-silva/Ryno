@@ -72,6 +72,7 @@
                 </div>
             </div>
 
+            <!--Parte de Editar-->
             <div id="edit" style="display: none;">
                 <h1>Professor</h1>
                 <img src="/static/Image/perfil.png" alt="">
@@ -111,20 +112,10 @@
                             <p>Faixa de preço: R$00,00</p>
                         </div>
                     </div>
-                    <div id="professor">
-                        <img src="/static/Image/perfil.png" alt="">
-                        <div>
-                            <p><span>João Silva</span></p>
-                            <p>(11) 11111-1111</p>
-                            <p>Horário: 00:00 - 00:00</p>
-                            <p>Faixa de preço: R$00,00</p>
-                        </div>
-                    </div>
                     
                     <h2>Meus Serviços</h2>
                     <div id="contato-p">
                         <p>Modalidade: {{ modalidade }}</p>
-                        <p>Local: a discutir </p>
                         <p>Horário: {{ horario }}</p>
                         <p>Faixa de preço: {{ preco }}</p>
                     </div>
@@ -132,8 +123,6 @@
                     <div id="edit-p" style="display: none;">
                         <form id="editForm-p" action="/perfil/editar" method="post">
                             <input type="text" id="modalidadeInput" name="modalidade" value="{{ modalidade }}">
-                            <br>
-                            <input type="text" id="localInput" name="local" value="{{ local }}">
                             <br>
                             <input type="text" id="horarioInput" name="horario" value="{{ horario }}">
                             <br>

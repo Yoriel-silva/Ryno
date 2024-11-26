@@ -133,7 +133,17 @@ main{
 #enviar-btn{
     margin: 0 auto;
     margin-top: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #4A0B57;
+    border: none;
+    color: #fff;
+    width: 95px;
+    height: 80%;
+    opacity: 0.7;
+    transition: .5s;
 }
+
 #perfil, #edit{
     font-family: "Libre Franklin", sans-serif;
     display: flex;
