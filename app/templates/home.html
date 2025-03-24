@@ -1,142 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryno - Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,900;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="/static/css/styleHome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Fitness AI/ML Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+        }
+        
+        .image-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0,0,0,0.95) 0%,
+                rgba(0,0,0,0.4) 45%,
+                rgba(0,0,0,0.4) 55%,
+                rgba(0,0,0,0.95) 100%
+            );
+            z-index: 1;
+        }
+
+        .dramatic-image {
+            filter: contrast(1.4) brightness(0.7) grayscale(1);
+            mix-blend-mode: luminosity;
+            object-position: center 30%;
+        }
+
+        .stats-container {
+            background: radial-gradient(
+                circle at center,
+                transparent 30%,
+                rgba(0,0,0,0.6) 100%
+            );
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="/static/Image/logoRYNO.png" alt="Logo da Academia RYNO">
+<body class="home-page">
+    <!-- Header/Nav -->
+    <header class="absolute w-full top-2 left-0 z-50 px-6 py-4">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="flex items-center gap-4">
+                <img class="logo" src="/static/Image/logoRYNO.png" alt="Ryno Logo" height="70">
+                <button class="nav-button">Contate-nos</button>
+                <ul class="flex gap-4">
+                    <li><a href="#download" class="nav-link">Download</a></li>
+                    <li><a href="#about" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="#modalidades" class="nav-link">Modalidades</a></li>
+                </ul>
         </div>
-        <nav>
-            <ul class="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="/profissional">Profissionais</a></li>
-                <li><a href="#aluno">Aluno</a></li>
-            </ul>
         </nav>
-        <div class="login-btn">
-            {% if user_logged_in %}
-            <!-- Se o usuário estiver logado, mostrar o botão Perfil -->
-            <a href="perfil" class="btn">Perfil</a>
-            {% else %}
-            <!-- Se o usuário NÃO estiver logado, mostrar o botão Login -->
-            <a href="login" class="btn">Login</a>
-            {% endif %}
-        </div>
     </header>
 
-    <main>
-        <section id="home" class="intro">
-            <h1 class="title">
-                <span class="academia">Plataforma</span><br>
-                <span class="completa">Fitness</span>
+    <!-- Main Content -->
+    <main class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0 image-overlay">
+            <img src="/static/Image/mulher.jpg" alt="Fitness Woman" class="w-full h-full object-cover dramatic-image">
+        </div>
+
+        <!-- Stats Overlay -->
+        <div class="absolute inset-0 flex items-center justify-center stats-container">
+            <!-- Stats Lines -->
+            <div class="relative w-full max-w-4xl aspect-video">
+                <!-- Top Left Stat -->
+                <div class="absolute top-[180px] left-[320px] flex items-center">
+                    <div class="text-purple-500 font-bold text-2xl">251</div>
+                    <span class="text-gray-400 text-sm ml-1">kcal</span>
+                    <div class="stat-line bg-gradient-to-r from-purple-500/50 ml-2"></div>
+                </div>             
+
+                <!-- Top Right Stat -->
+                <div class="absolute top-[170px] right-[-60px] flex items-center">
+                    <div class="stat-line bg-gradient-to-l from-purple-500/50 mr-2"></div>
+                    <div class="text-purple-500 font-bold text-2xl">121</div>
+                    <span class="text-gray-400 text-sm ml-1">bpm</span>
+                </div>
+
+                <!-- Bottom Left Stat -->
+                <div class="absolute top-[310px] left-[-50px] flex items-center">
+                    <div class="text-purple-500 font-bold text-2xl">99</div>
+                    <span class="text-gray-400 text-sm ml-1">SpO2</span>
+                    <div class="stat-line bg-gradient-to-r from-purple-500/50 ml-2"></div>
+                </div>
+
+                <!-- Bottom Right Stat -->
+                <div class="absolute bottom-[190px] right-[-30%] flex items-center">
+                    <div class="stat-line bg-gradient-to-l from-purple-500/50 mr-2"></div>
+                    <div class="text-purple-500 font-bold text-2xl">118</div>
+                    <span class="text-gray-400 text-sm ml-1">mmHg</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Text Content -->
+        <div class="relative z-10 text-center px-4">
+            <h1 class="headline mb-6">
+                Plataforma Fitness
             </h1>
-            <p class="description">
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
                 Transforme sua mente e seu corpo conosco - venha fazer parte da nossa equipe e atinja seus melhores resultados!
             </p>
-        </section>
+        </div>
+    </main>
 
-        <div class="section1">
-            <div class="elemento"></div>
-            <p class="title-section">Quem Somos Nós</p>
-            <div class="imagem-container">
-                <img src="/static/Image/halter.png" alt="Imagem Halter" class="imagem-halter">
+    <div class="p-4 bg-black" id="download">
+        <section class="flex items-center justify-between bg-[#510698] py-12 px-8 rounded-xl max-w-[98%] mx-auto">
+            <div class="flex-1">
+                <img src="/static/Image/celular.png" alt="Phone Mockup" class="w-full max-w-md mx-auto">
             </div>
-            <p>Somos uma plataforma dedicada a conectar professores 
-                de educação física qualificados e alunos em busca de 
-                aulas de diversas modalidades. Nosso objetivo é facilitar 
-                o encontro entre profissionais apaixonados pelo que 
-                fazem e pessoas que desejam melhorar sua saúde, bem-estar 
-                e desempenho físico. Seja você um atleta em busca de 
-                treinamento especializado ou alguém querendo iniciar 
-                uma atividade física, estamos aqui para ajudar a 
-                encontrar o profissional ideal para suas necessidades.</p>
-        </div>
-        <div class="section2">
-            <div class="elemento"></div>
-            <p class="title-section">Modalidades</p>
-            <div class="imagem-container">
-                <img src="/static/Image/luta.png" alt="Imagem Luta" class="imagem-luta">
+            <div class="flex-1 text-white">
+                <button class="mission-btn mb-4">nossa missão</button>
+                <h2 class="text-4xl font-normal leading-tight tracking-normal mb-8">Capacitamos pessoas a alcançar <br>seus objetivos fitness com <br><span class="bg-black text-white px-2 py-0.5 rounded-xl font-semibold">soluções personalizadas</span>.</h2>
+                <button class="mt-6 bg-white text-black font-semibold py-3 px-6 rounded-xl flex items-center shadow-lg hover:shadow-xl transition-all duration-300">
+                    Download The App
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                </button>
             </div>
-            <p>
-                Nossos Professores cadastrados oferecem uma ampla variedade 
-                de modalidades para atender a todos os gostos e objetivos. 
-                De esportes tradicionais a atividades modernas, 
-                temos opções para quem busca treinamento funcional, 
-                musculação, pilates, yoga, dança, artes marciais, 
-                entre muitas outras. Independentemente do seu nível 
-                ou interesse, nossos professores especializados 
-                estão prontos para proporcionar aulas personalizadas e de qualidade.
+        </section>
+    </div>
+
+    <!-- Seção Sobre Nós -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <h2 class="about-title">Sobre nós</h2>
+            
+            <p class="about-subtitle">
+                A Academia Que Vai Além do Treino: Aqui, Você Encontra <br>Motivação, Suporte e Resultados!
             </p>
+            
+            <div class="about-content">
+                <div class="about-image-container">
+                    <img src="/static/Image/sobre-nos.jpg" alt="sobre nós academia" class="about-image">
         </div>
-            <section id="profissionais" class="modalities-section">
-                <div class="image-container">
-                    <img src="/static/Image/modalidade.avif" alt="Imagem Modalidades" class="modalities-img">
-                    <div class="overlay">
-                        <h2 class="modalities-title">MODA<br>LIDADES</h2>
-                        <div class="title-line"></div>
+                
+                <div class="about-text-container">
+                    <p class="about-text">
+                        Na nossa academia, acreditamos que a atividade física vai além do 
+                        treino — é um estilo de vida. Nosso compromisso é oferecer um ambiente 
+                        motivador, com profissionais qualificados e equipamentos de ponta, para que 
+                        você alcance seus objetivos com saúde e determinação. Seja para ganhar força, 
+                        melhorar o condicionamento ou simplesmente se sentir bem, estamos aqui para 
+                        te acompanhar em cada passo da sua jornada fitness.
+                    </p>
+
+                    <div class="about-cta-container">
+                        <a href="https://wa.me/5561999095049?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20academia." target="_blank" class="about-cta-button" style="display: inline-block; padding: 0.75rem 1.5rem; background-color: transparent; color: white; text-transform: uppercase; font-weight: 600; border-radius: 12px; border: 2px solid white; text-decoration: none;" onmouseover="this.style.backgroundColor='#510698'; this.style.borderColor='#510698';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='white';">Entre em contato</a>
                     </div>
                 </div>
-                <div class="modalities-content">
-                    <div class="icons-container">
-                        <div class="icon-box">
-                            <img src="/static/Image/Icons/haltere.png" alt="Musculação" class="icon">
-                            <p>Musculação</p>
-                        </div>
-                        <div class="icon-box">
-                            <img src="/static/Image/Icons/natacao.png" alt="Natação" class="icon">
-                            <p>Natação</p>
-                        </div>
-                        <div class="icon-box">
-                            <img src="/static/Image/Icons/meditacao.png" alt="Yoga" class="icon">
-                            <p>Yoga</p>
-                        </div>
-                        <div class="icon-box">
-                            <img src="/static/Image/Icons/taekwondo.png" alt="Luta" class="icon">
-                            <p>Luta</p>
-                        </div>
-                        <div class="icon-box">
-                            <img src="/static/Image/Icons/dancando.png" alt="Dança" class="icon">
-                            <p>Dança</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrossel de Modalidades -->
+    <section class="categories-section" id="modalidades">
+        <div class="categories-container">
+            <h2 class="about-title mb-8">Nossas Modalidades</h2>
+            
+            <!-- Swiper -->
+            <div class="swiper categoriesSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Categoria 1 -->
+                    <div class="swiper-slide category-card">
+                        <div class="category-image-container">
+                            <img src="/static/Image/fisiocuturista.jpg" alt="Bodybuilding" class="category-image">
+                            <div class="category-overlay"></div>
+                            <h3 class="category-title">Bodybuilding</h3>
                         </div>
                     </div>
-                    <p class="modalities-description">
-                        Equipamento Completo, Spinning, CrossFit / Profissionais Capacitados.<br> 
-                        Aquecida / Aulas para Todos os Níveis.<br>  
-                        Ambiente Tranquilo / Instrutores Experientes.<br>   
-                        Espaços Adequados / Diversos Estilos como KRAV MAGA, JIU JITSU, MUAY THAI, CAPOEIRA e BOXE.<br>   
-                        Estúdio de Dança / Diversos Estilos como ZUMBA, FIT DANCE e BRAZA.
-                    </p>
-                    <h2 class="modalities-subtitle">O que você quer fazer hoje?</h2>
-                    <button class="btn modalities-btn"><a class="btn-modalidades-a" href="/profissional">Veja todas as modalidades</a></button>
+                    
+                    <!-- Categoria 2 -->
+                    <div class="swiper-slide category-card">
+                        <div class="category-image-container">
+                            <img src="/static/Image/fisiocuturista.jpg" alt="Fitness" class="category-image">
+                            <div class="category-overlay"></div>
+                            <h3 class="category-title">Fitness</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Categoria 3 -->
+                    <div class="swiper-slide category-card">
+                        <div class="category-image-container">
+                            <img src="/static/Image/fisiocuturista.jpg" alt="Crossfit" class="category-image">
+                            <div class="category-overlay"></div>
+                            <h3 class="category-title">Crossfit</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Categoria 4 -->
+                    <div class="swiper-slide category-card">
+                        <div class="category-image-container">
+                            <img src="/static/Image/fisiocuturista.jpg" alt="Circle Studio" class="category-image">
+                            <div class="category-overlay"></div>
+                            <h3 class="category-title">Circle Studio</h3>
+                        </div>
+                    </div>
+
+                    <!-- Categoria 5 -->
+                    <div class="swiper-slide category-card">
+                        <div class="category-image-container">
+                            <img src="/static/Image/fisiocuturista.jpg" alt="Yoga" class="category-image">
+                            <div class="category-overlay"></div>
+                            <h3 class="category-title">Yoga</h3>
+                        </div>
+                    </div>
+
+                    <!-- Categoria 6 -->
+                    <div class="swiper-slide category-card">
+                        <div class="category-image-container">
+                            <img src="/static/Image/fisiocuturista.jpg" alt="Pilates" class="category-image">
+                            <div class="category-overlay"></div>
+                            <h3 class="category-title">Pilates</h3>
+                        </div>
+                    </div>
+
+                    <!-- Categoria 7 -->
+                    <div class="swiper-slide category-card">
+                        <div class="category-image-container">
+                            <img src="/static/Image/fisiocuturista.jpg" alt="Spinning" class="category-image">
+                            <div class="category-overlay"></div>
+                            <h3 class="category-title">Spinning</h3>
+                        </div>
+                    </div>
+
+                    <!-- Categoria 8 -->
+                    <div class="swiper-slide category-card">
+                        <div class="category-image-container">
+                            <img src="/static/Image/fisiocuturista.jpg" alt="Funcional" class="category-image">
+                            <div class="category-overlay"></div>
+                            <h3 class="category-title">Funcional</h3>
+                </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- Indicadores de navegação fora do Swiper -->
+            <div class="swiper-pagination"></div>
                 </div>
             </section>
-        <footer class="footer-section">
-            <div class="footer-content">
-                <div class="social-buttons">
-                    <a href="https://www.facebook.com" target="_blank" class="social-button">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com" target="_blank" class="social-button">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me" target="_blank" class="social-button">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+
+    <!-- Linha de separação -->
+    <div class="w-full h-0.5 bg-white rounded-full" style="margin-top: 40px;"></div>
+
+    <!-- Script para o carrossel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.categoriesSwiper', {
+                slidesPerView: 4,
+                spaceBetween: 0,
+                slidesPerGroup: 4,
+                loop: false,
+                loopFillGroupWithBlank: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '"></span>';
+                    },
+                },
+                breakpoints: {
+                    // quando a largura da janela é >= 320px
+                    320: {
+                        slidesPerView: 1,
+                        slidesPerGroup: 1,
+                    },
+                    // quando a largura da janela é >= 576px
+                    576: {
+                        slidesPerView: 1,
+                        slidesPerGroup: 1,
+                    },
+                    // quando a largura da janela é >= 768px
+                    768: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2,
+                    },
+                    // quando a largura da janela é >= 992px
+                    992: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 3,
+                    },
+                    // quando a largura da janela é >= 1200px
+                    1200: {
+                        slidesPerView: 4,
+                        slidesPerGroup: 4,
+                    }
+                },
+                on: {
+                    init: function() {
+                        console.log('Swiper inicializado');
+                    },
+                    slideChange: function() {
+                        console.log('Slide alterado para', this.activeIndex);
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center">
+                    <img src="/static/Image/logoRYNO.png" alt="Logo" class="logo" height="100">
+                    <div class="social-icons flex ml-12 gap-4">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
                 </div>
-                <div class="footer-info">
-                    <p>&copy; 2024 Academia RYNO. Todos os direitos reservados.</p>
+                
+                <div class="text-center">
+                    <p class="mb-2">Baixe nosso aplicativo</p>
+                    <div class="download-icons flex space-x-2">
+                        <img src="/static/Image/appstory.svg" alt="App Store" class="h-10">
+                        <img src="/static/Image/googleplay.svg" alt="Google Play" class="h-10">
+                    </div>
+                </div>
+            </div>
+            <div class="legal mt-8 text-center text-sm">
+                <p>© 2025 Todos os direitos reservados</p>
                 </div>
             </div>
         </footer>
-    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('Link clicado:', this.getAttribute('href'));
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        console.log('Elemento encontrado:', targetElement);
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        console.log('Rolando para:', offsetTop);
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        console.error('Elemento alvo não encontrado:', targetId);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

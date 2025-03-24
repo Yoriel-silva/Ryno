@@ -218,6 +218,17 @@ def redirect_to_wpp():
     wpp_url = "https://wa.me/seu_numero" # Substituir seu_numero pelo numero do sistema desse modo: 55619xxxxxxxx
     return RedirectResponse(url=wpp_url)
 
+# Rota para a landing page CoreForge
+@app.get("/coreforge", response_class=HTMLResponse)
+def read_coreforge(request: Request):
+    user_email = request.session.get('user_email')
+    user = read(user_email)
+    if not user:
+        user_logged_in = False
+    else:
+        user_logged_in = True
+    return templates.TemplateResponse("coreforge.html", {"request": request, "user_logged_in": user_logged_in})
+
 #Rota Pagina Peril Update
 @app.post('/perfil/editar', response_class=HTMLResponse)
 def perfil_editar(request: Request,nome:str = Form(...), email: str = Form(...), telefone: str = Form(...), endereco: str = Form(...), modalidade: Optional[str] = Form(None), horario: Optional[str] = Form(None), preco: Optional[str] = Form(None),):

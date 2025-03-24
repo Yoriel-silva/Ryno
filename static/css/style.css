@@ -1,290 +1,783 @@
+/* Reset e configurações gerais */
 body {
-    background: #222222;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-hr{
-  color: #727272;
-}
-
-#container {
-    width: 95%;
-    margin: 0 auto;
-}
-
-header {
-    height: 120px;
-    overflow: hidden; /* Clear floats */
-}
-
-.cabecalho {
-    position: sticky;
-    top: 0;
-    background-color: #222222;
-    border-bottom: 2px solid white;
-    border-radius: 5px;
-}
-
-header #logo h1 {
-    background: url(../img/LOGO02.png) no-repeat;
-    width: 130px;
-    height: 192px;
-    text-indent: -9999px;
-    margin: 0 20% 0 0;
-    float: left;
-}
-
-header nav ul {
-    list-style: none;
-    margin: 50px 30px 0 0;
-    float: right;
-}
-
-header nav ul li {
-    float: left;
-}
-
-header nav ul li a {
-    margin-right: 25px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: white;
-    font-size: larger;
-    opacity: 1;
-    transition: 0.6s;
-}
-
-header nav ul li a:hover {
-    opacity: 0.3;
-}
-
-#nav-login {
-    background-color: #666666;
-    padding: 20px;
-    border-radius: 15px;
-    transition: 0.6s;
-}
-.icones nav ul li a {
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-}
-
-.icones li {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    margin: 0 10px 0 32px;
-}
-
-.icones p {
-    text-align: center;
-}
-
-.clear {
-    clear: both;
-}
-
-footer {
-    padding: 0;
-    height: 130px;
-    border-top: 2px solid white;
-    border-radius: 5px;
-    padding-top: 10px;
-    overflow: hidden; /* Clear floats */
-    margin-top: 20px;
-}
-
-footer nav ul {
-    list-style: none;
-    margin: 20px;
-    float: right;
-}
-
-footer #logo h1 {
-    background: url(../img/LOGO02.png) no-repeat;
-    width: 130px;
-    height: 192px;
-    text-indent: -9999px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0A0A0A;
     margin: 0;
-    float: right;
+    padding: 0;
 }
 
-p {
+/* Container principal */
+.landing-container {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    border-radius: 40px;
+    margin: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background e overlay */
+.bg-image-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.bg-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%);
+    z-index: 10;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Conteúdo principal */
+.main-content {
+    position: relative;
+    z-index: 20;
+    padding: 1.5rem 2.5rem;
+}
+
+/* Navegação */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 100px;
+    margin-right: 15px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.nav-menu a:hover {
+    opacity: 0.7;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.get-started-btn {
+    background-color: white;
+    color: black;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.get-started-btn:hover {
+    background-color: #f3f3f3;
+    transform: translateY(-2px);
+}
+
+/* Linha vertical com ponto */
+.vertical-line {
+    position: absolute;
+    left: 5rem;
+    top: 0;
+    height: 100%;
+}
+
+.line {
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    left: 50%;
+    top: 33%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+/* Área de conteúdo principal */
+.content-area {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 11rem);
+}
+
+/* Contador de dias */
+.days-counter {
+    position: absolute;
+    top: 8rem;
+    right: 2.5rem;
+    text-align: right;
+}
+
+.days-text {
+    color: white;
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin: 0;
+}
+
+.change-text {
+    color: #9ca3af;
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* Mensagem principal */
+.main-heading {
+    margin-top: 8rem;
+}
+
+.headline {
+    font-size: 8.125rem;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02rem;
+    margin-top: 25rem;
+}
+
+.headline .text-white {
     color: white;
 }
 
-#direitos {
-    display: inline;
+.headline .text-purple {
+    color: #510698;
+}
+
+.subheadline {
+    margin-left: 6rem;
+    margin-top: 1.5rem;
+}
+
+.transform-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Seção de rodapé */
+.footer-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.join-us-title {
+    color: #8A2BE2;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.social-links a:hover {
+    opacity: 0.7;
+}
+
+.slider-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.slider-btn {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.slider-btn.active {
+    background-color: #510698;
+    color: white;
+    border-color: #510698;
+}
+
+.slider-btn:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Elemento decorativo */
+.shape-element {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 75%;
+    height: 100%;
+    transform: translateY(-50%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0.2;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Responsividade */
+@media (max-width: 1400px) {
+    .headline {
+        font-size: 7rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .headline {
+        font-size: 6rem;
+    }
+    
+    .days-text {
+        font-size: 3rem;
+    }
+    
+    .subheadline {
+        margin-left: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content {
+        padding: 1.25rem;
+    }
+    
+    .headline {
+        font-size: 5rem;
+    }
+    
+    .transform-text {
+        font-size: 1.25rem;
+    }
+    
+    .nav-menu {
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .headline {
+        font-size: 4rem;
     text-align: center;
-    margin-left: 40%;
-    margin-bottom: 50px;
 }
 
-.sobre {
-    background-color: #666666;
+    .subheadline {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .transform-text {
+        font-size: 1.125rem;
+    }
+    
+    .days-counter {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        top: auto;
+        right: auto;
+        margin-bottom: 2rem;
+    }
+    
+    .vertical-line {
+        display: none;
+    }
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000;
     color: white;
-    width: 1164px;
-    margin: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos da Home */
+.home-page {
+    min-height: 100vh;
+    background-color: #000;
+}
+
+.image-overlay {
+    position: relative;
+}
+
+.image-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        rgba(0,0,0,0.95) 0%,
+        rgba(0,0,0,0.4) 50%,
+        rgba(0,0,0,0.95) 100%
+    );
+    z-index: 1;
+}
+
+.dramatic-image {
+    filter: contrast(1.4) brightness(0.7) grayscale(1);
+    object-position: center 30%;
+}
+
+.stats-container {
+    background: radial-gradient(
+        circle at center,
+        transparent 20%,
+        rgba(0,0,0,0.4) 60%,
+        rgba(0,0,0,0.8) 100%
+    );
+}
+
+/* Navegação */
+.nav-button {
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(39, 39, 42, 0.5);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #510698;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #510698;
+    left: 0;
+    bottom: -2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom right;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+/* Estatísticas */
+.stat-line {
+    width: 8rem;
+    height: 1px;
+}
+
+/* Texto Principal */
+.main-title {
+    font-size: 3.75rem;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .headline {
+        font-size: 7.5rem;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+    .stat-line {
+        width: 4rem;
+    }
+    
+    .headline {
+        font-size: 3.5rem;
+    }
+}
+
+/* Botão Iniciar Projeto */
+.iniciar-projeto-btn {
+    display: flex;
+    align-items: center;
+    background-color: #510698;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
     border-radius: 10px;
-    overflow: hidden; /* Clear floats */
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(77, 17, 141, 0.4);
+    transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
-.quemsomos {
+.btn-text {
+    padding: 12px 24px;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    z-index: 1;
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.iniciar-projeto-btn:hover {
+    background-color: #510698;
+}
+
+.iniciar-projeto-btn:hover .btn-text {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.iniciar-projeto-btn:hover .btn-icon {
+    position: absolute;
+    inset: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.iniciar-projeto-btn:hover .btn-icon svg {
+    transform: scale(1.5);
+    transition: transform 0.3s ease;
+}
+
+.mission-btn {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    border: 2px solid white;
+}
+
+.text-white h2 {
+    margin-top: 2rem;
+}
+
+/* Estilos para a seção Sobre Nós */
+.about-section {
+    padding: 5rem 0;
+    background-color: #000000;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    font-weight: 700;
     text-align: center;
-    overflow: hidden; /* Clear floats */
+    margin-bottom: 2rem;
+    color: #ffffff;
 }
 
-.imgquem2 {
-    float: left;
-    width: 356px;
-    height: 425px;
-    padding: 10px;
+.about-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    color: #9ca3af;
 }
 
-.imgquem1 {
-    float: right;
-    width: 356px;
-    height: 525px;
-    padding: 20px;
+.about-content {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
 }
 
-.textoquemsomos {
-    text-align: justify;
-    font-size: 15px; 
-    overflow: hidden; /* Clear floats */
-    margin: 10px;
+.about-image-container {
+    flex: 1;
 }
-.icon{
-    color: #bdbdbd;
-    font-size: 35px;
-    padding-right: 15px;
-    opacity: 0.3;
-    transition: 0.6s;
+
+.about-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-.icon:hover{
+
+.about-text-container {
+    flex: 1;
+}
+
+.about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #9ca3af;
+    margin-bottom: 1.5rem;
+}
+
+.about-cta-container {
+    margin-top: 2rem;
+}
+
+.about-cta-button:hover {
+    background-color: #510698;
+    color: white;
+    border-color: #510698;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-image-container {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Estilos para o carrossel de categorias */
+.categories-section {
+    padding: 4rem 0;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.categories-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+/* Estilos para o Swiper */
+.categoriesSwiper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.swiper-slide {
+  text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-card {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.category-image-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+    filter: contrast(1.2) brightness(0.9);
+}
+
+.category-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.6) 100%
+    );
+    z-index: 1;
+}
+
+.category-title {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.swiper-slide:hover .category-image {
+    transform: scale(1.05);
+}
+
+/* Estilos para a paginação do Swiper */
+.swiper-pagination {
+    position: relative;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    bottom: -30px !important;
+}
+
+.swiper-pagination-bullet {
+    background-color: white !important;
     opacity: 1;
-}
-.div-icon{
-    text-align: left;
-    margin-top: 15px;
-}
-.box-quem{
-  display: flex;
-  margin: 30px auto;
-  justify-content: space-evenly;
-}
-.aluno, .profissional{
-  width: 200px;
-  background-color: #666666;
-  color: #bdbdbd;
-  border-radius: 15px;
-  font-size: xx-large;
-  text-align: center;
-  line-height: 100px;
-}
-/*  */
-#principal-login {
-  background: #666666;
-  width: 436px;
-  height: 669px;
-  border-radius: 50px;
-  margin: 0px 422px;
+    transition: all 0.3s ease;
+    margin: 0 !important;
 }
 
-#principal-login input{
-  display: block;
-  border-radius: 50px;
-  margin: 0px 0px 20px 47px;
-  width: 342px;
-  height: 40px;
-  font-size: 20px;
-  text-indent: 20px;
+.swiper-pagination-bullet-active {
+    background-color: #510698 !important;
+    transform: scale(1.2);
 }
 
-#principal-login button {
-  border-radius: 50px;
-  margin: 0px 0px 0px 146px;
-  width: 143px;
-  height: 40px;
+/* Responsividade */
+@media (max-width: 1200px) {
+    .category-image-container {
+        height: 350px;
+    }
 }
 
-.text-login {
-  display: block;
-  text-align: center;
-  padding: 50px 0px 70px 0px;
+@media (max-width: 992px) {
+    .category-image-container {
+        height: 300px;
+    }
 }
 
-.text-google {
-  display: block;
-  text-align: center;
+@media (max-width: 576px) {
+    .category-image-container {
+        height: 250px;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+        bottom: 1.5rem;
+        left: 1.5rem;
+    }
 }
 
-#principal-login p {
-  text-align: center;
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem 0;
 }
 
-#principal-login a {
-  text-decoration: none;
-  color: #222222;
-}
-/*cadastro*/
-
-#principal-cadastro {
-  background: #666666;
-  width: 436px;
-  height: 669px;
-  border-radius: 50px;
-  margin: 0px 422px;
+.footer .logo {
+    height: 70px;
 }
 
-#principal-cadastro input{
-  display: block;
-  border-radius: 50px;
-  margin: 0px 0px 15px 47px;
-  width: 342px;
-  height: 40px;
-  font-size: 20px;
-  text-indent: 20px;
+.footer .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: #fff;
+    margin-right: 0;
+    transition: color 0.3s, background-color 0.3s;
 }
 
-#principal-cadastro button {
-  border-radius: 50px;
-  margin: 0px 0px 0px 146px;
-  width: 143px;
-  height: 40px;
+.footer .social-icons a:last-child {
+    margin-right: 0;
 }
 
-.text-cadastro {
-  display: block;
-  text-align: center;
-  padding: 50px 0px 30px 0px;
+.footer .social-icons a:hover {
+    color: white;
+    background-color: #510698;
+    border-color: #510698;
 }
 
-.text-google {
-  display: block;
-  text-align: center;
-}
-
-#principal-cadastro p {
-  text-align: center;
-}
-
-#principal-cadastro a {
-  text-decoration: none;
-  color: #222222;
-}
-/* Profissional */
-
-
-.profissionais{
+.footer .links a {
   color: #fff;
-  text-align: center;
+    margin-right: 1.5rem;
+    transition: color 0.3s;
 }
-.professor-basquete{
-  display: flex;
-  background-color:  #666666;
-  border-radius: 10px;
+
+.footer .links a:hover {
+    color: #510698;
 }
-.professor-basquete p{
-  display: block;
+
+.footer .download-icons img {
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+
+.footer .legal {
+    color: #666;
+    font-size: 0.875rem;
+    margin-top: 1.5rem;
 }
