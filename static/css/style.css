@@ -771,9 +771,18 @@ body {
     color: #510698;
 }
 
+.footer .download-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .footer .download-icons img {
     height: 2.5rem;
-    margin-right: 1rem;
+    margin: 0 auto;
+    display: block;
 }
 
 .footer .legal {
